@@ -9,8 +9,7 @@ import importlib
 import ReportGenerator
 import TestcaseRunner
 
-
-class DeprecatedHomeworkExecutioner:
+class DeprecatedHomeworkExecutioner: #TODO delete this later
     def __init__(self,fileLocation):
         txt = open(fileLocation+"\studenIDs.txt", "r")
         self.students = txt.read().split('\n')
@@ -51,16 +50,9 @@ class DeprecatedHomeworkExecutioner:
                 spec = importlib.util.spec_from_file_location(i.student_id, self.solutions_path + "\\" + i.student_id +".py") #spec_from_file_location(studentId, path\studenId.py)
                 foo = importlib.util.module_from_spec(spec)
                 spec.loader.exec_module(foo)
-                i.run()#TODO what to do with the exercise
+                i.run()#TODO what to do with the exercise?
 
-
-
-
-
-
-
-
-#TEST #TODO: delete this later
+#This is a test #TODO: delete this later
 #HE = Homework_Executioner("C:\\StudentProjects")
 #while HE.i!=HE.studentAmount:
 #    HE.__next__()

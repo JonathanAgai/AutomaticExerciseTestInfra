@@ -1,5 +1,4 @@
 import pyautogui
-
 from Operation import Operation
 
 

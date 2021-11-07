@@ -1,16 +1,26 @@
 import pyautogui
+import glob
+from PIL import Image
 
-from main import is_images_the_same
+
+def is_images_the_same(img1, img2) -> bool:
+    return False
+
+
+def extract_image_from_path(expected_img_path):
+    filename = glob.glob(expected_img_path)
+    return Image.open(filename)
 
 
 class Test:
     def __init__(self, operations, expected_img_path, crop_area):
         self.operations = operations
 
+        # expected_img_path: Solution image for a specific test
         self.expected_img_path = expected_img_path
-        # TODO extract image from expected_img_path
-        self.expected_img = None
+        self.expected_img = extract_image_from_path(self.expected_img_path)
 
+        # crop_area: Screenshot area for comparison
         self.crop_area = crop_area
         self.success = False
 

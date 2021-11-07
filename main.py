@@ -1,11 +1,6 @@
 import time
 import json
 
-
-def is_images_the_same(img1, img2) -> bool:
-    return False
-
-
 def extract_operations_from_test_json(test_operations):
     operations = []
     for operation in test_operations:

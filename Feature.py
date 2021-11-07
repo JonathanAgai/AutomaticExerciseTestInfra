@@ -1,5 +1,3 @@
-
-
 class Feature:
     def __init__(self, tests, score_percent):
         self.tests = tests
@@ -17,7 +15,6 @@ class Feature:
     def run_tests(self):
         for test in self.tests:
             test.run()
-
 
     def print(self):
         print(f"score percent = {self.score_percent}")

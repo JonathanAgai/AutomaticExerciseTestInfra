@@ -1,32 +1,30 @@
 {
 	"feature1": {
-		"test_0_plus_1": {
+		"test_0": {
 			"operations": [
-				{"click":  [250, 200]},
-				{"keyboard": 0},
-				{"click":  [350, 200]},
-				{"keyboard": 1},
-				{"click":  [550, 200]}
+				{"click":  [95, 50]},
+				{"keyboard": "yoni"},
+				{"click":  [100, 70]},
+				{"keyboard": "agai"},
+				{"click":  [100, 107]}
 			],
 			"result": {
-				"crop_area": [250,250, 50,50],
-				"expected_result": "test1_feature1_test_0_plus_1.png"
-			}
-		},
-		"test_neg_1_plus_1": {
-			"operations": [
-				{"click":  [250, 200]},
-				{"keyboard": -1},
-				{"click":  [350, 200]},
-				{"keyboard": 1},
-				{"click":  [550, 200]}
-			],
-			"result": {
-				"crop_area": [250,250, 50,50],
-				"expected_result": "test1_feature1_test_-1_plus_1.png"
+				"crop_area": [200,200, 10,10],
+				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\t1.png"
 			}
 		}
-	}
-
-
+	},
+			"test_1": {
+			"operations": [
+				{"click":  [95, 50]},
+				{"keyboard": "yoni"},
+				{"click":  [100, 70]},
+				{"keyboard": ""},
+				{"click":  [100, 107]}
+			],
+			"result": {
+				"crop_area": [200,200, 10,10],
+				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\t1.png"
+			}
+		}
 }

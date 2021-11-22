@@ -1,6 +1,11 @@
 import time
 import json
 
+from Feature import Feature
+from Operation import Click, Keyboard
+from StudentData import StudentData
+from Test import Test
+
 
 def extract_operations(test_operations):
     operations = []
@@ -23,7 +28,7 @@ class TestcaseRunner:
     def __init__(self, student_id, json_configuration_file_path):
         self.student_id = student_id
         self.json_configuration_file_path = json_configuration_file_path
-        self.features = extract_features()
+        self.features = self.extract_features()
         self.final_score = 0
         self.features_scores = []
         self.features_reviews = []
@@ -53,12 +58,12 @@ class TestcaseRunner:
     def run(self):
         for feature in self.features:
             feature.run_tests()
-        calculate_scores()
+        self.calculate_scores()
 
     def calculate_scores(self):
         for feature in self.features:
             self.feature_scores.append(feature.get_score())
-        self.final_score = round(sum(feature_scores))
+        self.final_score = round(sum(self.feature_scores))
 
     def get_results(self):
         student_data = StudentData(self.student_id, self.features_scores, self.features_reviews)

@@ -1,3 +1,5 @@
+import time
+
 import pyautogui
 import glob
 from PIL import Image
@@ -8,8 +10,8 @@ def is_images_the_same(img1, img2) -> bool:
 
 
 def extract_image_from_path(expected_img_path):
-    filename = glob.glob(expected_img_path)
-    return Image.open(filename)
+    #filename = glob.glob(expected_img_path)
+    return Image.open(expected_img_path)
 
 
 class Test:

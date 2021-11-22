@@ -13,18 +13,5 @@
 				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\t1.png"
 			}
 		}
-	},
-			"test_1": {
-			"operations": [
-				{"click":  [95, 50]},
-				{"keyboard": "yoni"},
-				{"click":  [100, 70]},
-				{"keyboard": ""},
-				{"click":  [100, 107]}
-			],
-			"result": {
-				"crop_area": [200,200, 10,10],
-				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\t1.png"
-			}
-		}
+	}
 }

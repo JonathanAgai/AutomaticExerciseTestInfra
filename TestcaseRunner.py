@@ -62,8 +62,8 @@ class TestcaseRunner:
 
     def calculate_scores(self):
         for feature in self.features:
-            self.feature_scores.append(feature.get_score())
-        self.final_score = round(sum(self.feature_scores))
+            self.features_scores.append(feature.get_score())
+        self.final_score = round(sum(self.features_scores))
 
     def get_results(self):
         student_data = StudentData(self.student_id, self.features_scores, self.features_reviews)

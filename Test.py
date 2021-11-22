@@ -6,11 +6,11 @@ from PIL import Image
 
 
 def is_images_the_same(img1, img2) -> bool:
+    #TODO maybe template macthing or pyautogui locate on screen
     return False
 
 
 def extract_image_from_path(expected_img_path):
-    #filename = glob.glob(expected_img_path)
     return Image.open(expected_img_path)
 
 
@@ -34,6 +34,7 @@ class Test:
 
         cropped_image = pyautogui.screenshot(region=self.crop_area)
         self.success = is_images_the_same(self.expected_img, cropped_image)
+        print(f"test success = {self.success}")
         # TODO make sure to write reviews after each test
 
     def print(self):

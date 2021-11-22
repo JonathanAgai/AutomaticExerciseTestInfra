@@ -1,9 +1,12 @@
 import HomeworkExecutioner
 from TestcaseRunner import TestcaseRunner
+from multiprocessing import Process
 
 
-testcase_runner = TestcaseRunner('308418367', 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\ShayExam.json')
-HomeworkExecutioner.run_student_solution('C:\\Users\\Ben\\PycharmProjects\\pythonProject\\testing.py', 'testing')
-testcase_runner.run()
-
-
+if __name__ == '__main__':
+    testcase_runner = TestcaseRunner('308418367', 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\ShayExam.json')
+    p = Process(target=HomeworkExecutioner.run_student_solution,
+                args=('C:\\Users\\Ben\\PycharmProjects\\pythonProject\\testing.py', 'testing'))
+    p.start()
+    testcase_runner.run()
+    p.terminate()

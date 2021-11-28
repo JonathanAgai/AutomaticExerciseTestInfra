@@ -1,17 +1,17 @@
+import os
 import time
+from functools import reduce
 
+import cv2
 import pyautogui
-import glob
-from PIL import Image
+from PIL import ImageChops, Image
+
+from ImageSimilarity import ImageSimilarity
 
 
-def is_images_the_same(img1, img2) -> bool:
-    #TODO maybe template macthing or pyautogui locate on screen
-    return False
-
-
-def extract_image_from_path(expected_img_path):
-    return Image.open(expected_img_path)
+def equal(im1, im2):
+    print(f"{ImageChops.difference(im1, im2).getbbox()}")
+    return ImageChops.difference(im1, im2).getbbox() is None
 
 
 class Test:
@@ -20,7 +20,6 @@ class Test:
 
         # expected_img_path: Solution image for a specific test
         self.expected_img_path = expected_img_path
-        self.expected_img = extract_image_from_path(self.expected_img_path)
 
         # crop_area: Screenshot area for comparison
         self.crop_area = crop_area
@@ -33,7 +32,17 @@ class Test:
             time.sleep(2)
 
         cropped_image = pyautogui.screenshot(region=self.crop_area)
-        self.success = is_images_the_same(self.expected_img, cropped_image)
+        cropped_image_path = r'C:\\Users\\Ben\\Desktop\\compare\\test.png'
+        cropped_image.save(cropped_image_path)
+        img1 = cv2.imread(self.expected_img_path, 0)
+        img2 = cv2.imread(cropped_image_path, 0)
+
+        image_sim = ImageSimilarity(img1, img2)
+        print(f"orb_sim: {image_sim.orb_sim()}")
+        print(f"structural_sim: {image_sim.structural_sim()}")
+
+        self.success = equal(cropped_image, cropped_image)
+        # os.remove(r'C:\\Users\\Ben\\Desktop\\compare\\test.png')
         print(f"test success = {self.success}")
         # TODO make sure to write reviews after each test
 

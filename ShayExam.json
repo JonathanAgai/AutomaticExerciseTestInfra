@@ -9,7 +9,7 @@
 				{"click":  [100, 107]}
 			],
 			"result": {
-				"crop_area": [200,200, 10,10],
+				"crop_area": [15,15, 200,200],
 				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\t1.png"
 			}
 		}

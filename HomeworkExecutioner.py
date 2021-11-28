@@ -7,7 +7,7 @@ hand over all test case runner to report Generator
 import os
 import importlib
 import TestcaseRunner
-#import ReportGenerator
+import ReportGenerator
 
 
 class HomeWorkExecutioner:
@@ -27,7 +27,7 @@ class HomeWorkExecutioner:
             self.test_case_runners.append(TestcaseRunner(student, self.exercise_json_operation_path))
 
         # TODO create report generator
-        #self.report_generator = ReportGenerator(self.result_path)
+        # self.report_generator = ReportGenerator(self.result_path)
 
         # Create list of solution paths
         self.student_solution_paths = "%%%" % (self.student_solution_folder_path, '.', students)

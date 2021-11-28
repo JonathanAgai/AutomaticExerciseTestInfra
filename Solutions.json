@@ -10,8 +10,8 @@
 			],
 			"result": {
 				"crop_area": [15,130, 200,20],
-				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\compare",
-				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\test_0.png"
+				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\q1solution\\",
+				"expected_result": ""
 			}
 		},
 		"test_1": {
@@ -22,8 +22,8 @@
 			],
 			"result": {
 				"crop_area": [15,130, 200,20],
-				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\compare",
-				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\test_1.png"
+				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\q1solution\\",
+				"expected_result": ""
 			}
 		},
 		"test_2": {
@@ -34,8 +34,8 @@
 			],
 			"result": {
 				"crop_area": [15,130, 200,20],
-				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\compare",
-				"expected_result": "C:\\Users\\Ben\\Desktop\\q1solution\\test_2.png"
+				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\q1solution\\",
+				"expected_result": ""
 			}
 		}
 	}

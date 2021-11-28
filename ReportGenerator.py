@@ -20,8 +20,8 @@ class ReportGenerator:
 
 
 headers = ["student id", "feature1 score", "feature1 review", "feature2 score", "feature2 review", "final score"]
-sd1 = StudentData("308418367", ["10/20", "20/40"], ["wasnt good enough", "good"])
-sd2 = StudentData("204691588", ["15/20", "10/40"], ["crap", "crap"])
+sd1 = StudentData("308418367", ["10/20", "20/40"], ["test_name: review"])
+sd2 = StudentData("204691588", ["15/20", "10/40"], ["test_name: review"])
 students = [sd1, sd2]
 
 students_data = []

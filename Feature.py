@@ -13,7 +13,6 @@ class Feature:
         return self.score_percent * success_tests / num_tests
 
     def run_tests(self):
-        #TODO clear keyboard after each test or add clear key board as an operation
         for test in self.tests:
             test.run()
 

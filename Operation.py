@@ -22,6 +22,18 @@ class Click(Operation):
         print(f"Click {self.x}, {self.y}")
 
 
+class DoubleClick(Operation):
+    def __init__(self, x, y):
+        self.x = x
+        self.y = y
+
+    def execute(self):
+        pyautogui.click(self.x, self.y, clicks=2)
+
+    def print(self):
+        print(f"DobuleClick {self.x}, {self.y}")
+
+
 class Keyboard(Operation):
     def __init__(self, string):
         self.string = string
@@ -31,3 +43,14 @@ class Keyboard(Operation):
 
     def print(self):
         print(f"Keyboard {self.string}")
+
+
+class Delete(Operation):
+    def execute(self):
+        pyautogui.press('backspace', interval=0.01)
+
+    def print(self):
+        print(f"delete")
+
+
+

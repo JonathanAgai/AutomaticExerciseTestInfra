@@ -1,3 +1,4 @@
+import numpy as np
 from skimage.metrics import structural_similarity
 import cv2
 
@@ -32,6 +33,20 @@ class ImageSimilarity:
         sim, diff = structural_similarity(self.image1, self.image2, full=True)
         return sim
 
+    def mse(self):
+        # the 'Mean Squared Error' between the two images is the
+        # sum of the squared difference between the two images;
+        # NOTE: the two images must have the same dimension
+        err = np.sum((self.image1.astype("float") - self.image2.astype("float")) ** 2)
+        err /= float(self.image1.shape[0] * self.image1.shape[1])
 
+        # return the MSE, the lower the error, the more "similar"
+        # the two images are
+        return err
 
-
+    def compare_images(self):
+        m = self.mse()
+        s = self.structural_sim()
+        print(f"mse_sim: {m}")
+        print(f"structural_sim: {s}")
+        return m < 1.0 and s >= 0.99

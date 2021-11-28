@@ -29,7 +29,7 @@
 		"test_2": {
 			"operations": [
 				{"click":  [95, 50]},
-				{"keyboard": "yoni"},
+				{"keyboard": "yon"},
 				{"click":  [100, 107]}
 			],
 			"result": {

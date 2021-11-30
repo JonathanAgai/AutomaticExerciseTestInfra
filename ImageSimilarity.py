@@ -24,7 +24,7 @@ class ImageSimilarity:
         # Look for similar regions with distance < 50. Goes from 0 100
         similar_regions = [i for i in matches if i.distance < 50]
         if len(matches) == 0:
-            return 0
+            return 0.0
         return len(similar_regions) / len(matches)
 
     # Needs images to be same dimensions
@@ -47,6 +47,8 @@ class ImageSimilarity:
     def compare_images(self):
         m = self.mse()
         s = self.structural_sim()
+        o = self.orb_sim()
+        print(f"orb_sim: {o}")
         print(f"mse_sim: {m}")
         print(f"structural_sim: {s}")
-        return m < 1.0 and s >= 0.99
+        return m <= 100.0 and s >= 0.96

@@ -7,6 +7,7 @@ import pyautogui
 from PIL import ImageChops, Image
 
 from ImageSimilarity import ImageSimilarity
+from TemplateMatcher import TemplateMatcher
 
 
 class Test:
@@ -39,9 +40,11 @@ class Test:
             img2 = cv2.imread(cropped_image_path, 0)
 
             image_sim = ImageSimilarity(img1, img2)
-            self.success = image_sim.compare_images()
+            # self.success = image_sim.compare_images()
             # os.remove(cropped_image_path)
 
+            tm = TemplateMatcher(self.expected_img_path, cropped_image_path, self.test_name)
+            self.success = tm.template_matching()
             print(f"test success = {self.success}")
             # TODO ? self.test_review.append(self.test_name, self.success)
 

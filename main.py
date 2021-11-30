@@ -14,6 +14,4 @@ if __name__ == '__main__':
                 args=('C:\\Users\\Ben\\PycharmProjects\\pythonProject\\testing.py', 'testing'))
     p.start()
     testcase_runner.run()
-
-
     p.terminate()

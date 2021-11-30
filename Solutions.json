@@ -9,7 +9,7 @@
 				{"delete": ""}
 			],
 			"result": {
-				"crop_area": [15,130, 200,20],
+				"crop_area": [15,15, 200,200],
 				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\q1solution\\",
 				"expected_result": ""
 			}
@@ -21,7 +21,7 @@
 				{"click":  [100, 107]}
 			],
 			"result": {
-				"crop_area": [15,130, 200,20],
+				"crop_area": [15,15, 200,200],
 				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\q1solution\\",
 				"expected_result": ""
 			}
@@ -33,7 +33,7 @@
 				{"click":  [100, 107]}
 			],
 			"result": {
-				"crop_area": [15,130, 200,20],
+				"crop_area": [15,15, 200,200],
 				"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\q1solution\\",
 				"expected_result": ""
 			}

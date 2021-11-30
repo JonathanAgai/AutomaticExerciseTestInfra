@@ -3,8 +3,7 @@ from StudentData import StudentData
 
 
 class ReportGenerator:
-    def __init__(self,test_case_runners, student_data: list, table_headers: list, frames: list):
-        self.test_case_runners = test_case_runners
+    def __init__(self, student_data: list, table_headers: list, frames: list):
         self.student_data = student_data
         self.table_headers = table_headers
         self.frames = frames

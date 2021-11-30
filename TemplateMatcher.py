@@ -26,7 +26,7 @@ class TemplateMatcher:
     def template_matching(self):
         image = cv2.imread(self.source_image)
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        template = cv2.imread(self.crop_image,0)
+        template = cv2.imread(self.crop_image, 0)
         w, h = template.shape[::-1]
 
         res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)

@@ -1,17 +1,20 @@
 import HomeworkExecutioner
-from TestcaseRunner import TestcaseRunner
-from multiprocessing import Process
+
 
 state = False
 
 if __name__ == '__main__':
     if state:
-        testcase_runner = TestcaseRunner('308418367', 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\Solutions.json', state)
+        json_configuration_file_path = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\Solutions.json'
     else:
-        testcase_runner = TestcaseRunner('308418367', 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\ShayExam.json', state)
+        json_configuration_file_path = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\ShayExam.json'
 
-    p = Process(target=HomeworkExecutioner.run_student_solution,
-                args=('C:\\Users\\Ben\\PycharmProjects\\pythonProject\\testing.py', 'testing'))
-    p.start()
-    testcase_runner.run()
-    p.terminate()
+    students_solution_folder_path = []
+    student_solution = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\testing.py'
+    students_solution_folder_path.append(student_solution)
+    results_report_path = 'C:\\Users\\Ben\\Desktop\\results_report'
+    homework_exe = HomeworkExecutioner.HomeWorkExecutioner(students_solution_folder_path,
+                                                           results_report_path, json_configuration_file_path, state)
+
+    homework_exe.run()
+

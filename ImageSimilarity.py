@@ -5,8 +5,8 @@ import cv2
 
 class ImageSimilarity:
     def __init__(self, image1, image2):
-        self.image1 = image1
-        self.image2 = image2
+        self.image1 = cv2.imread(image1, 0)
+        self.image2 = cv2.imread(image2, 0)
 
     # Works well with images of different dimensions
     def orb_sim(self):

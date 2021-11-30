@@ -1,12 +1,5 @@
-import os
 import time
-from functools import reduce
-
-import cv2
 import pyautogui
-from PIL import ImageChops, Image
-
-from ImageSimilarity import ImageSimilarity
 from TemplateMatcher import TemplateMatcher
 
 
@@ -23,7 +16,7 @@ class Test:
         self.test_name = test_name
         self.state = state
         self.success = False
-        # TODO ? self.test_review = []
+        self.feature_review = []
 
     def run(self):
         time.sleep(5)
@@ -36,17 +29,11 @@ class Test:
         cropped_image.save(cropped_image_path)
 
         if not self.state:
-            img1 = cv2.imread(self.expected_img_path, 0)
-            img2 = cv2.imread(cropped_image_path, 0)
-
-            image_sim = ImageSimilarity(img1, img2)
-            # self.success = image_sim.compare_images()
             # os.remove(cropped_image_path)
-
             tm = TemplateMatcher(self.expected_img_path, cropped_image_path, self.test_name)
             self.success = tm.template_matching()
             print(f"test success = {self.success}")
-            # TODO ? self.test_review.append(self.test_name, self.success)
+            self.feature_review.append(f'{self.test_name}: {self.success}')
 
     def print(self):
         print(f"expected_image_path: {self.expected_img_path}, cropped_area: {self.crop_area}")
@@ -54,4 +41,4 @@ class Test:
             operation.print()
 
     def get_reviews(self):
-        return self.test_review
+        return self.feature_review

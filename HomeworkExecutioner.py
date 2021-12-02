@@ -9,7 +9,7 @@ import importlib
 from multiprocessing import Process
 
 import TestcaseRunner
-# import ReportGenerator
+import ReportGenerator
 from Feature import Feature
 from Operation import Click, Keyboard, DoubleClick, Delete
 from Test import Test
@@ -17,13 +17,13 @@ from Test import Test
 
 class HomeWorkExecutioner:
     def __init__(self, students_solution_folder_path, results_report_path, json_configuration_file_path, state):
-        self.json_configuration_file_path = json_configuration_file_path
         self.students_solution_folder_path = students_solution_folder_path
+        self.results_report_path = results_report_path
+        self.json_configuration_file_path = json_configuration_file_path
         self.state = state
         self.students_ids = ['308418367']
-        self.test_case_runners = self.init_test_case_runners() # Create test case runners
-        # TODO self.report_generator = ReportGenerator(results_report_path)
-        self.features_headers = []
+        self.report_headers = []  # used as a headers for report table
+        self.test_case_runners = self.init_test_case_runners()  # Create test case runners
 
         # TODO :
         #  Assuming all students gives their IDs as names
@@ -46,8 +46,13 @@ class HomeWorkExecutioner:
         num_features = len(data.keys())
 
         features = []
+        # Creating headers for report table
+        # TODO generate feature names fucntions
+        self.report_headers.append('Students_ids')
         for feature_name, feature_tests in data.items():
-            # TODO add feature_name self.features_headers.append(feature_name)
+            # self.report_headers.append(feature_name)
+            self.report_headers.append(f'{feature_name}_score')
+            self.report_headers.append(f'{feature_name}_review')
             print(feature_name)
 
             tests = []
@@ -63,6 +68,7 @@ class HomeWorkExecutioner:
 
             feature = Feature(tests, 100 / num_features)
             features.append(feature)
+            self.report_headers.append('final_score')
         return features
 
     def run(self):
@@ -73,9 +79,10 @@ class HomeWorkExecutioner:
                     p = Process(target=run_student_solution, args=(student_solution, student_id))
                     p.start()
                     test_case_runner.run()
-                    # TODO students_data.append(test_case_runner.get_results())
+                    students_data.append(test_case_runner.get_results())
                     p.terminate()
-        # TODO self.report_generator.generate_report(self.results_report_path)
+        report_generator = ReportGenerator.ReportGenerator(self.results_report_path, students_data, self.report_headers)
+        report_generator.generate_report()
 
 
 def run_student_solution(student_solution_path, student_id):

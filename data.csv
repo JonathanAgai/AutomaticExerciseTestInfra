@@ -1,3 +1,2 @@
-,student id,feature1 score,feature1 review,feature2 score,feature2 review,final score
-0,308418367,10/20,wasnt good enough,20/40,good,30/60
-1,204691588,15/20,crap,10/40,crap,25/60
+,Students_ids,feature1_score,feature1_review,final_score
+0,308418367,['66.66666666666667/100'],"['test_0: failed', 'test_1: succeeded', 'test_2: succeeded']",66.66666666666667/100.0

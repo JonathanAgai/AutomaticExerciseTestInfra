@@ -16,7 +16,7 @@ class Test:
         self.test_name = test_name
         self.state = state
         self.success = False
-        self.feature_review = []
+        self.feature_review = ''
 
     def run(self):
         time.sleep(5)
@@ -33,12 +33,16 @@ class Test:
             tm = TemplateMatcher(self.expected_img_path, cropped_image_path, self.test_name)
             self.success = tm.template_matching()
             print(f"test success = {self.success}")
-            self.feature_review.append(f'{self.test_name}: {self.success}')
+
+            if self.success:
+                self.feature_review = f'{self.test_name}: succeeded'
+            else:
+                self.feature_review = f'{self.test_name}: failed'
 
     def print(self):
         print(f"expected_image_path: {self.expected_img_path}, cropped_area: {self.crop_area}")
         for operation in self.operations:
             operation.print()
 
-    def get_reviews(self):
+    def get_review(self):
         return self.feature_review

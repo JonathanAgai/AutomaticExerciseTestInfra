@@ -1,7 +1,7 @@
 from HomeworkExecutioner import *
 
 
-running_lecturer_solution = True
+running_lecturer_solution = False
 
 if __name__ == '__main__':
     if running_lecturer_solution:

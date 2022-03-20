@@ -1,7 +1,7 @@
 {
 	"features": {
 		"display_name": {
-			"test_0": {
+			"student_display_name_with_only_last_name": {
 				"operations": [
 					{
 						"click": [
@@ -36,10 +36,10 @@
 						20
 					],
 					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
-					"expected_result": "C:\\Users\\Ben\\Desktop\\Student_Solution\\test_0.png"
+					"expected_result": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\display_name_with_only_last_name.png"
 				}
 			},
-			"test_1": {
+			"student_display_name_with_only_first_name": {
 				"operations": [
 					{
 						"click": [
@@ -65,10 +65,10 @@
 						20
 					],
 					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
-					"expected_result": "C:\\Users\\Ben\\Desktop\\Student_Solution\\test_1.png"
+					"expected_result": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\display_name_with_only_first_name.png"
 				}
 			},
-			"test_2": {
+			"student_display_full_name": {
 				"operations": [
 					{
 						"click": [
@@ -77,7 +77,7 @@
 						]
 					},
 					{
-						"keyboard": "Agai"
+						"keyboard": "Aga"
 					},
 					{
 						"click": [
@@ -94,7 +94,7 @@
 						20
 					],
 					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
-					"expected_result": "C:\\Users\\Ben\\Desktop\\Student_Solution\\test_2.png"
+					"expected_result": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\display_full_name.png"
 				}
 			}
 		}

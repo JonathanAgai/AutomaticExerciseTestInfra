@@ -4,11 +4,11 @@ from TemplateMatcher import TemplateMatcher
 
 
 class Test:
-    def __init__(self, operations, expected_img_path, crop_area, crop_area_img_path, test_name):
+    def __init__(self, operations, expected_result_img_path, crop_area, crop_area_img_path, test_name):
         self.operations = operations
 
         # expected_img_path: Solution image for a specific test
-        self.expected_img_path = expected_img_path
+        self.expected_result_img_path = expected_result_img_path
 
         # crop_area: Screenshot area for comparison
         self.crop_area = crop_area
@@ -30,7 +30,7 @@ class Test:
 
         if not running_lecturer_solution:
             # os.remove(cropped_image_path)
-            tm = TemplateMatcher(self.expected_img_path, cropped_image_path, self.test_name)
+            tm = TemplateMatcher(self.expected_result_img_path, cropped_image_path, self.test_name)
             self.success = tm.template_matching()
             print(f"test success = {self.success}")
 
@@ -40,7 +40,7 @@ class Test:
                 self.review_str = f'{self.test_name}: failed'
 
     def print(self):
-        print(f"expected_image_path: {self.expected_img_path}, cropped_area: {self.crop_area}")
+        print(f"expected_image_path: {self.expected_result_img_path}, cropped_image: {self.crop_area}")
         for operation in self.operations:
             operation.print()
 

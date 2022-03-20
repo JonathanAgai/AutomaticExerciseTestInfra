@@ -47,9 +47,3 @@ class HomeWorkExecutioner:
         report_generator.generate_report()
 
 
-# def run_student_solution(student_solution_path):
-#     spec = importlib.util.spec_from_file_location(student_id, student_solution_path)
-#     foo = importlib.util.module_from_spec(spec)
-#     spec.loader.exec_module(foo)
-
-

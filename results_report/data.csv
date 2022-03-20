@@ -1,0 +1,10 @@
+student_ids,display_name_score,display_name_review,final_score
+204897687,"['33.333333333333336/100', '100.0/100']","student_display_name_with_only_last_name: failed
+student_display_name_with_only_first_name: succeeded
+student_display_full_name: failed",33.333333333333336/100.0
+308418367,"['33.333333333333336/100', '100.0/100']","student_display_name_with_only_last_name: failed
+student_display_name_with_only_first_name: succeeded
+student_display_full_name: failed
+student_display_name_with_only_last_name: succeeded
+student_display_name_with_only_first_name: succeeded
+student_display_full_name: succeeded",133.33333333333334/200.0

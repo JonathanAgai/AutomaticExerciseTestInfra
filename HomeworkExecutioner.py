@@ -3,16 +3,12 @@ iteratre over each solution, run it, and create test_case_runner
 hand over all test case runner to report Generator
 
 """
-import json
+
 import os
-import importlib
-from multiprocessing import Process
 from subprocess import Popen
 from ReportGenerator import *
 from TestcaseRunner import *
-from Feature import Feature
-from Operation import Click, Keyboard, DoubleClick, Delete
-from Test import Test
+
 
 
 class HomeWorkExecutioner:

@@ -4,7 +4,7 @@ from TemplateMatcher import TemplateMatcher
 
 
 class Test:
-    def __init__(self, operations, expected_img_path, crop_area, crop_area_img_path, test_name, state):
+    def __init__(self, operations, expected_img_path, crop_area, crop_area_img_path, test_name):
         self.operations = operations
 
         # expected_img_path: Solution image for a specific test
@@ -14,30 +14,30 @@ class Test:
         self.crop_area = crop_area
         self.crop_area_img_path = crop_area_img_path
         self.test_name = test_name
-        self.state = state
         self.success = False
-        self.feature_review = ''
+        self.review_str = ''
 
-    def run(self):
+    def run(self, running_lecturer_solution):
         time.sleep(5)
         for operation in self.operations:
             operation.execute()
             time.sleep(2)
 
         cropped_image = pyautogui.screenshot(region=self.crop_area)
+
         cropped_image_path = self.crop_area_img_path + f'\\{self.test_name}.png'
         cropped_image.save(cropped_image_path)
 
-        if not self.state:
+        if not running_lecturer_solution:
             # os.remove(cropped_image_path)
             tm = TemplateMatcher(self.expected_img_path, cropped_image_path, self.test_name)
             self.success = tm.template_matching()
             print(f"test success = {self.success}")
 
             if self.success:
-                self.feature_review = f'{self.test_name}: succeeded'
+                self.review_str = f'{self.test_name}: succeeded'
             else:
-                self.feature_review = f'{self.test_name}: failed'
+                self.review_str = f'{self.test_name}: failed'
 
     def print(self):
         print(f"expected_image_path: {self.expected_img_path}, cropped_area: {self.crop_area}")
@@ -45,4 +45,4 @@ class Test:
             operation.print()
 
     def get_review(self):
-        return self.feature_review
+        return self.review_str

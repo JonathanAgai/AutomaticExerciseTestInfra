@@ -1,26 +1,35 @@
 from StudentData import StudentData
+from TestConfigurationParser import *
 
 
 class TestcaseRunner:
+    def __init__(self, test_configurations_path=None):
 
-    def __init__(self, student_id, features, json_configuration_file_path):
-        self.student_id = student_id
-        self.json_configuration_file_path = json_configuration_file_path
-        self.features = features
+        self.features = None
         self.final_score = ''
         self.features_scores = []
         self.features_reviews = []
 
-    def run(self):
+        if test_configurations_path is not None:
+            self.set_configurations(test_configurations_path)
+
+    def set_configurations(self, test_configurations_path):
+        self.features = TestConfigurationParser.extract_features(test_configurations_path)
+
+    def run(self, student_id, running_lecturer_solution) -> StudentData:
+        self.features_scores.clear()
+        self.features_reviews.clear()
+        self.final_score = "N/A"
+
         for feature in self.features:
-            feature.run_tests()
+            feature.run_tests(running_lecturer_solution)
+            # total score
             self.features_scores.append(feature.get_feature_score())
+            # list of test reviews
             self.features_reviews.append(feature.get_feature_review())
         self.calculate_final_score()
 
-    def get_results(self):
-        sd = StudentData(self.student_id, self.features_scores, self.features_reviews, self.final_score)
-        return sd.generate_data()
+        return StudentData(student_id, self.features_scores, self.features_reviews, self.final_score)
 
     def calculate_final_score(self):
         x, y = 0, 0

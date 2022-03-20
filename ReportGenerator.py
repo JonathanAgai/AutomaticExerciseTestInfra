@@ -13,20 +13,17 @@ class ReportGenerator:
         for student_data in self.students_data:
             self.student_row_generator(student_data)
         result = pd.concat(self.frames)
-        result.to_csv(f'{self.results_report_path}\\data.csv')
-        convert_to_html(f'{self.results_report_path}\\data.csv')
+        result.to_csv(f'{self.results_report_path}\\data.csv', index=None)
+
+        df = pd.read_csv(f'{self.results_report_path}\\data.csv')
+
+        # then to_excel method converting the .csv file to .xlsx file.
+        df.to_excel("Students_Grades.xlsx", sheet_name="Students_Grades", index=False)
 
     def student_row_generator(self, student_data):
         df = pd.DataFrame([student_data], columns=self.table_headers)
         self.frames.append(df)
 
 
-def convert_to_html(filename):
-    a = pd.read_csv(filename)
-    a.to_html(filename)
+# headers = ["student id", "feature1 score", "feature1 review", "final score"]
 
-
-# headers = ["student id", "feature1 score", "feature1 review", "feature2 score", "feature2 review", "final score"]
-# sd1 = StudentData("308418367", ["10/20", "20/40"], ["test_name: review"])
-# sd2 = StudentData("204691588", ["15/20", "10/40"], ["test_name: review"])
-# students = [sd1, sd2]

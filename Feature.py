@@ -14,9 +14,9 @@ class Feature:
                 # TODO fix /100
         self.feature_score.append(f'{self.score_percent * success_tests / num_tests}/100')
 
-    def run_tests(self):
+    def run_tests(self, running_lecturer_solution):
         for test in self.tests:
-            test.run()
+            test.run(running_lecturer_solution)
             self.feature_reviews.append(test.get_review())
         self.calculate_score()
 

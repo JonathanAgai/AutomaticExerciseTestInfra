@@ -1,0 +1,102 @@
+{
+	"features": {
+		"display_name": {
+			"test_0": {
+				"operations": [
+					{
+						"click": [
+							95,
+							50
+						]
+					},
+					{
+						"keyboard": "Aga"
+					},
+					{
+						"click": [
+							100,
+							107
+						]
+					},
+					{
+						"double_click": [
+							95,
+							50
+						]
+					},
+					{
+						"delete": ""
+					}
+				],
+				"result": {
+					"crop_area": [
+						15,
+						130,
+						200,
+						20
+					],
+					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
+					"expected_result": "C:\\Users\\Ben\\Desktop\\Student_Solution\\test_0.png"
+				}
+			},
+			"test_1": {
+				"operations": [
+					{
+						"click": [
+							100,
+							70
+						]
+					},
+					{
+						"keyboard": "Yoni"
+					},
+					{
+						"click": [
+							100,
+							107
+						]
+					}
+				],
+				"result": {
+					"crop_area": [
+						15,
+						130,
+						200,
+						20
+					],
+					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
+					"expected_result": "C:\\Users\\Ben\\Desktop\\Student_Solution\\test_1.png"
+				}
+			},
+			"test_2": {
+				"operations": [
+					{
+						"click": [
+							95,
+							50
+						]
+					},
+					{
+						"keyboard": "Agai"
+					},
+					{
+						"click": [
+							100,
+							107
+						]
+					}
+				],
+				"result": {
+					"crop_area": [
+						15,
+						130,
+						200,
+						20
+					],
+					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
+					"expected_result": "C:\\Users\\Ben\\Desktop\\Student_Solution\\test_2.png"
+				}
+			}
+		}
+	}
+}

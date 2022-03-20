@@ -1,0 +1,102 @@
+{
+	"features": {
+		"display_name": {
+			"display_name_with_only_last_name": {
+				"operations": [
+					{
+						"click": [
+							95,
+							50
+						]
+					},
+					{
+						"keyboard": "Agai"
+					},
+					{
+						"click": [
+							100,
+							107
+						]
+					},
+					{
+						"double_click": [
+							95,
+							50
+						]
+					},
+					{
+						"delete": ""
+					}
+				],
+				"result": {
+					"crop_area": [
+						15,
+						15,
+						200,
+						200
+					],
+					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\",
+					"expected_result": ""
+				}
+			},
+			"display_name_with_only_first_name": {
+				"operations": [
+					{
+						"click": [
+							100,
+							70
+						]
+					},
+					{
+						"keyboard": "Yoni"
+					},
+					{
+						"click": [
+							100,
+							107
+						]
+					}
+				],
+				"result": {
+					"crop_area": [
+						15,
+						15,
+						200,
+						200
+					],
+					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\",
+					"expected_result": ""
+				}
+			},
+			"display_full_name": {
+				"operations": [
+					{
+						"click": [
+							95,
+							50
+						]
+					},
+					{
+						"keyboard": "Agai"
+					},
+					{
+						"click": [
+							100,
+							107
+						]
+					}
+				],
+				"result": {
+					"crop_area": [
+						15,
+						15,
+						200,
+						200
+					],
+					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\",
+					"expected_result": ""
+				}
+			}
+		}
+	}
+}

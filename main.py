@@ -1,20 +1,19 @@
-import HomeworkExecutioner
+from HomeworkExecutioner import *
 
 
-state = False
+running_lecturer_solution = True
 
 if __name__ == '__main__':
-    if state:
-        json_configuration_file_path = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\Solutions.json'
+    if running_lecturer_solution:
+        json_configuration_file_path = 'configuration/Lecturer_Solution.json'
     else:
-        json_configuration_file_path = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\ShayExam.json'
+        json_configuration_file_path = './configuration/Student_Solution.json'
 
-    students_solution_folder_path = []
-    student_solution = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\testing.py'
-    students_solution_folder_path.append(student_solution)
+    students_solution_folder_path = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\students_solution'
     results_report_path = 'C:\\Users\\Ben\\Desktop\\results_report'
-    homework_exe = HomeworkExecutioner.HomeWorkExecutioner(students_solution_folder_path,
-                                                           results_report_path, json_configuration_file_path, state)
+    homework_exe = HomeWorkExecutioner(students_solution_folder_path,
+                                       results_report_path,
+                                       json_configuration_file_path)
 
-    homework_exe.run()
+    homework_exe.run(running_lecturer_solution)
 

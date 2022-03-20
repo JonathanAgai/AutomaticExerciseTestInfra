@@ -17,11 +17,11 @@ class Test:
         self.success = False
         self.review_str = ''
 
-    def run(self, running_lecturer_solution):
-        time.sleep(5)
+    def run(self, student_id, running_lecturer_solution):
+        time.sleep(0.5)
         for operation in self.operations:
             operation.execute()
-            time.sleep(2)
+            time.sleep(0.5)
 
         cropped_image = pyautogui.screenshot(region=self.crop_area)
 
@@ -30,7 +30,7 @@ class Test:
 
         if not running_lecturer_solution:
             # os.remove(cropped_image_path)
-            tm = TemplateMatcher(self.expected_result_img_path, cropped_image_path, self.test_name)
+            tm = TemplateMatcher(student_id, self.expected_result_img_path, cropped_image_path, self.test_name)
             self.success = tm.template_matching()
             print(f"test success = {self.success}")
 

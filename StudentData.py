@@ -26,9 +26,10 @@ class StudentData:
 
     def generate_data(self):
         data = [self.student_id]
-        for score, review in zip(self.features_scores, self.features_reviews):
+        for score, test_reviews in zip(self.features_scores, self.features_reviews):
+            test_reviews_str = '\n'.join(test_reviews)
             data.append(score)
-            data.append(review)
+            data.append(test_reviews_str)
         data.append(self.final_score)
         return data
 

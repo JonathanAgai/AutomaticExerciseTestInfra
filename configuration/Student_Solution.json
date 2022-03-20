@@ -10,7 +10,7 @@
 						]
 					},
 					{
-						"keyboard": "Aga"
+						"keyboard": "Agai"
 					},
 					{
 						"click": [
@@ -35,8 +35,8 @@
 						200,
 						20
 					],
-					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
-					"expected_result": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\display_name_with_only_last_name.png"
+					"crop_area_img_path": "Student_Solution",
+					"expected_result": "lecturer_solution\\display_name_with_only_last_name.png"
 				}
 			},
 			"student_display_name_with_only_first_name": {
@@ -64,8 +64,8 @@
 						200,
 						20
 					],
-					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
-					"expected_result": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\display_name_with_only_first_name.png"
+					"crop_area_img_path": "Student_Solution",
+					"expected_result": "lecturer_solution\\display_name_with_only_first_name.png"
 				}
 			},
 			"student_display_full_name": {
@@ -77,7 +77,7 @@
 						]
 					},
 					{
-						"keyboard": "Aga"
+						"keyboard": "Agai"
 					},
 					{
 						"click": [
@@ -93,8 +93,8 @@
 						200,
 						20
 					],
-					"crop_area_img_path": "C:\\Users\\Ben\\Desktop\\Student_Solution",
-					"expected_result": "C:\\Users\\Ben\\Desktop\\Lecturer_Solution\\display_full_name.png"
+					"crop_area_img_path": "Student_Solution",
+					"expected_result": "lecturer_solution\\display_full_name.png"
 				}
 			}
 		}

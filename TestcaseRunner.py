@@ -22,7 +22,7 @@ class TestcaseRunner:
         self.final_score = "N/A"
 
         for feature in self.features:
-            feature.run_tests(running_lecturer_solution)
+            feature.run_tests(student_id, running_lecturer_solution)
             # total score
             self.features_scores.append(feature.get_feature_score())
             # list of test reviews

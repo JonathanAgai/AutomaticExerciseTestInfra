@@ -9,8 +9,8 @@ if __name__ == '__main__':
     else:
         json_configuration_file_path = './configuration/Student_Solution.json'
 
-    students_solution_folder_path = 'C:\\Users\\Ben\\PycharmProjects\\pythonProject\\students_solution'
-    results_report_path = 'C:\\Users\\Ben\\Desktop\\results_report'
+    students_solution_folder_path = 'students_solution_execs'
+    results_report_path = 'results_report'
     homework_exe = HomeWorkExecutioner(students_solution_folder_path,
                                        results_report_path,
                                        json_configuration_file_path)

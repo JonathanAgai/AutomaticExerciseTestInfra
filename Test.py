@@ -30,7 +30,7 @@ class Test:
 
         if not running_lecturer_solution:
             # os.remove(cropped_image_path)
-            tm = TemplateMatcher(student_id, self.expected_result_img_path, cropped_image_path, self.test_name)
+            tm = TemplateMatcher(self.expected_result_img_path, cropped_image_path, self.test_name, student_id)
             self.success = tm.template_matching()
             print(f"test success = {self.success}")
 

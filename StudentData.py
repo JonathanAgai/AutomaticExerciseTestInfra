@@ -14,16 +14,6 @@ class StudentData:
         self.features_reviews = features_reviews
         self.final_score = final_score
 
-    # assume each feature score is "x/y"
-    # def calculate_final_score(self):
-    #     x, y = 0, 0
-    #     for score in self.features_scores:
-    #         x_cur, y_cur = score.split("/")
-    #         x += int(x_cur)
-    #         y += int(y_cur)
-    #     final_score = str(x) + "/" + str(y)
-    #     return final_score
-
     def generate_data(self):
         data = [self.student_id]
         for score, test_reviews in zip(self.features_scores, self.features_reviews):

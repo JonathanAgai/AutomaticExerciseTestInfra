@@ -1,4 +1,29 @@
 {
+	"gui_elements": {
+		"screen_width": 600,
+		"screen_height": 400,
+		"screen_offset_x": 10,
+		"screen_offset_y": 10,
+
+		"elements": {
+			"last_name" : {
+				"type": "label",
+				"image_path_location": "last_name.png",
+				"input": {
+					"orientation": "right",
+					"width": 15,
+					"height": 20
+				}
+			},
+			"display_full_name": {
+				"type": "button",
+				"image_path_location": "last_name.png"
+			}
+		}
+	},
+
+	"click": "display_full_name",
+
 	"features": {
 		"display_name": {
 			"display_name_with_only_last_name": {

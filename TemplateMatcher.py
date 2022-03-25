@@ -4,7 +4,7 @@ import os
 
 
 class TemplateMatcher:
-    def __init__(self, student_id, source_image, crop_image, test_name):
+    def __init__(self, source_image, crop_image, test_name="-1", student_id=-1):
         self.student_id = student_id
         self.source_image = source_image
         self.crop_image = crop_image
@@ -41,9 +41,31 @@ class TemplateMatcher:
 
         loc = np.where(res >= threshold)
 
-        #self.draw_rectangle_around_target(loc, image, w, h)
+        # self.draw_rectangle_around_target(loc, image, w, h)
 
         if not self.match_found:
             self.save_result_image(template)
 
         return self.match_found
+
+    @staticmethod
+    def find_location(source_image, template_path):
+        image = source_image
+        image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        template = cv2.imread(template_path, 0)
+        w, h = template.shape[::-1]
+
+        res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)
+        threshold = 0.99
+
+        if np.amax(res) < threshold:
+            # Failed to match
+            return []
+
+        loc = np.where(res >= threshold)
+        for pt in zip(*loc[::-1]):
+            x = pt[0]
+            y = pt[1]
+            return [x, y, w, h]
+
+        return []

@@ -35,11 +35,14 @@ class TestcaseRunner:
         x, y = 0, 0
         flat_list = []
         for score in self.features_scores:
-            flat_list += score
+            flat_list.append(score)
         for score in flat_list:
             x_cur, y_cur = score.split("/")
             x += float(x_cur)
             y += float(y_cur)
+
+        x = round(x, 2)
+        y = round(y, 2)
         final_score = str(x) + "/" + str(y)
         self.final_score = final_score
 

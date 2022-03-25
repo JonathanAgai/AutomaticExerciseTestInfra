@@ -1,0 +1,23 @@
+{
+	"gui_elements": {
+		"screen_width": 600,
+		"screen_height": 400,
+		"screen_offset_x": 10,
+		"screen_offset_y": 10,
+
+		"elements": [
+			{
+				"name": "last name",
+				"type": "label",
+				"image_path_location": "last_name.png",
+				"padding_x": 5,
+				"value": {
+					"width": 15,
+					"height": 20
+				}
+			}
+		]
+	}
+
+
+}

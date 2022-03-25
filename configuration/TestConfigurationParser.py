@@ -64,6 +64,7 @@ def extract_test_configuration_operations(test_operations):
 
 
 class TestConfigurationParser:
+    # Private static member that holds inner configuration data
     _data = None
 
     @staticmethod

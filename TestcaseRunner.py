@@ -16,13 +16,13 @@ class TestcaseRunner:
     def set_configurations(self, test_configurations_path):
         self.features = TestConfigurationParser.extract_features(test_configurations_path)
 
-    def run(self, student_id, running_lecturer_solution) -> StudentData:
+    def run(self, student_id) -> StudentData:
         self.features_scores.clear()
         self.features_reviews.clear()
         self.final_score = "N/A"
 
         for feature in self.features:
-            feature.run_tests(student_id, running_lecturer_solution)
+            feature.run_tests(student_id)
             # total score
             self.features_scores.append(feature.get_feature_score())
             # list of test reviews

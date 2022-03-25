@@ -28,7 +28,7 @@ class HomeWorkExecutioner:
                 students_id.append(student_id)
         return students_id
 
-    def run(self, running_lecturer_solution):
+    def run(self):
         students_data = []
         for student_id in self.students_id:
             student_id_dir_path = os.path.join(self.students_solution_folder_path, student_id)
@@ -36,7 +36,7 @@ class HomeWorkExecutioner:
             print(student_exe_path)
             cmd = ['python.exe', student_exe_path]
             p = Popen(cmd)
-            student_data = self.test_case_runner.run(student_id, running_lecturer_solution)
+            student_data = self.test_case_runner.run(student_id)
             students_data.append(student_data.generate_data())
             p.terminate()
         report_generator = ReportGenerator(self.results_report_path, students_data, self.report_headers)

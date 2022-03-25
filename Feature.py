@@ -19,11 +19,11 @@ class Feature:
 
         self.feature_score = f"{feature_score} / {feature_total_score}"
 
-    def run_tests(self, student_id, running_lecturer_solution):
+    def run_tests(self, student_id):
         self.feature_score = "-1"
         self.feature_reviews.clear()
         for test in self.tests:
-            test.run(student_id, running_lecturer_solution)
+            test.run(student_id)
             if not test.success:
                 self.feature_reviews.append(test.get_review())
         self.calculate_score()

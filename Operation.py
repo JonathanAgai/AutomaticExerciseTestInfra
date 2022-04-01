@@ -16,10 +16,11 @@ class Click(Operation):
         self.y = y
 
     def execute(self):
+        self.print()
         pyautogui.click(self.x, self.y)
 
     def print(self):
-        print(f"Click {self.x}, {self.y}")
+        print(f"Click:  x [{type(self.x)}] = {self.x}, y [{type(self.y)}]= {self.y}")
 
 
 class DoubleClick(Operation):

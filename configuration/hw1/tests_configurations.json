@@ -1,0 +1,72 @@
+{
+	"gui_elements": {
+		"screen_width": 200,
+		"screen_height": 200,
+		"screen_offset_x": 15,
+		"screen_offset_y": 15,
+
+		"elements": {
+			"last_name" : {
+				"type": "label",
+				"image_name": "last_name.png",
+				"input": {
+					"orientation": "right",
+					"width": 94,
+					"height": 20
+				}
+			},
+			"first_name" : {
+				"type": "label",
+				"image_name": "first_name.png",
+				"input": {
+					"orientation": "right",
+					"width": 94,
+					"height": 20
+				}
+			},
+			"full_name" : {
+				"type": "label",
+				"image_name": "full_name.png",
+				"input": {
+					"orientation": "right",
+					"width": 94,
+					"height": 20
+				}
+			},
+			"display_full_name": {
+				"type": "button",
+				"image_name": "display_full_name.png"
+			}
+
+		}
+	},
+
+	"features": {
+		"display_name": {
+			"display_name_with_only_last_name": {
+				"operations": [
+					{
+						"click": "last_name-input"
+					},
+					{
+						"keyboard": "Agai"
+					},
+					{
+						"click": "display_full_name"
+					},
+					{
+						"double_click": "last_name-input"
+					},
+					{
+						"delete": ""
+					}
+				],
+				"result": {
+					"cropped_element_name": "full_name",
+					"crop_area_img_path": "lecturer_solution",
+					"expected_result": ""
+				}
+			}
+		}
+	}
+}

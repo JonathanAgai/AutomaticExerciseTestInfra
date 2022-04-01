@@ -12,9 +12,6 @@ Label(window, text="Last name:").grid(row=0, column=0, sticky=E)
 conOFentLastName = StringVar()
 entLastName = Entry(window, width=15,
                     textvariable=conOFentLastName)
-we = entLastName.winfo_reqwidth()
-
-print('we: ', we)
 entLastName.grid(row=0, column=1, padx=5, sticky=W)
 
 Label(window, text="First name:").grid(row=1, column=0, sticky=E)

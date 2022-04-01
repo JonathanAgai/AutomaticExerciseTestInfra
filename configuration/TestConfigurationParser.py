@@ -1,4 +1,5 @@
 import json
+from GUIConfigurations import *
 from Operation import *
 from Test import *
 from Feature import *
@@ -38,24 +39,40 @@ def parse_features(data):
 def parse_test(test_name, test_values):
     operations = extract_test_configuration_operations(test_values["operations"])
     result = test_values["result"]
-    cropped_area = result["crop_area"]
+    cropped_element_name = result["cropped_element_name"]
     cropped_area_img_path = result["crop_area_img_path"]
     expected_result = result["expected_result"]
-    test = Test(operations, expected_result, cropped_area, cropped_area_img_path, test_name)
+    test = Test(operations, expected_result, cropped_element_name, cropped_area_img_path, test_name)
     return test
 
 
+def extract_xy_from_operation(element_name_operation, gui_config):
+    element_name = element_name_operation.split("-input")[0]
+    if "-input" in element_name_operation:
+        x, y = gui_config.get_elements_input_xy(element_name)
+    else:
+        x, y = gui_config.get_elements_xy(element_name)
+    return x, y
+
+
 def extract_test_configuration_operations(test_operations):
+    gui_config = GUIConfigurations.get_instance()
+
     operations = []
     for operation in test_operations:
         for operation_name, values in operation.items():
             print(f"{operation_name}: {operation}")
             if operation_name == "click":
-                operation = Click(values[0], values[1])
+                # values of click operation is the element name to be clicked
+                gui_element_name = values
+                x, y = extract_xy_from_operation(gui_element_name, gui_config)
+                operation = Click(x, y)
             elif operation_name == "keyboard":
                 operation = Keyboard(values)
             elif operation_name == "double_click":
-                operation = DoubleClick(values[0], values[1])
+                gui_element_name = values
+                x, y = extract_xy_from_operation(gui_element_name, gui_config)
+                operation = DoubleClick(x, y)
             elif operation_name == "delete":
                 operation = Delete()
 
@@ -66,6 +83,12 @@ def extract_test_configuration_operations(test_operations):
 class TestConfigurationParser:
     # Private static member that holds inner configuration data
     _data = None
+
+    @staticmethod
+    def initialize(test_configuration_path, images_dir_path):
+        data = TestConfigurationParser.get_config_data(test_configuration_path)
+        gui_elements = data["gui_elements"]
+        GUIConfigurations.initialize(gui_elements, images_dir_path)
 
     @staticmethod
     def get_config_data(test_configuration_path):

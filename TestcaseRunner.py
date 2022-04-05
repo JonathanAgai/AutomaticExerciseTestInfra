@@ -9,9 +9,10 @@ class TestcaseRunner:
         self.final_score = ''
         self.features_scores = []
         self.features_reviews = []
+        self.test_configurations_path = test_configurations_path
 
-        if test_configurations_path is not None:
-            self.set_configurations(test_configurations_path)
+        # if test_configurations_path is not None:
+        #     self.set_configurations(test_configurations_path)
 
     def set_configurations(self, test_configurations_path):
         self.features = TestConfigurationParser.extract_features(test_configurations_path)
@@ -20,6 +21,16 @@ class TestcaseRunner:
         self.features_scores.clear()
         self.features_reviews.clear()
         self.final_score = "N/A"
+
+        gui_config = GUIConfigurations.get_instance()
+        if not gui_config.find_gui_elements():
+            self.features_scores.append("0/0")
+            self.features_reviews.append("could not find gui elements")
+            self.final_score = "0"
+
+            return StudentData(student_id, self.features_scores, self.features_reviews, self.final_score)
+
+        self.set_configurations(self.test_configurations_path)
 
         for feature in self.features:
             feature.run_tests(student_id)

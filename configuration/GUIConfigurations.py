@@ -81,9 +81,6 @@ class GUIConfigurations:
         app_image = np.array(app_image)
 
         for e_key, e_val in self.gui_elements["elements"].items():
-            if e_key == "display_full_name":
-                a =5
-
 
             element_img_name = e_val["image_name"]
             element_img_path = f"{self.images_dir_path}/{element_img_name}"

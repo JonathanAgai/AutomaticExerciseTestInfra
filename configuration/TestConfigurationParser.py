@@ -1,5 +1,4 @@
 import json
-from GUIConfigurations import *
 from Operation import *
 from Test import *
 from Feature import *
@@ -40,8 +39,9 @@ def parse_test(test_name, test_values):
     operations = extract_test_configuration_operations(test_values["operations"])
     result = test_values["result"]
     cropped_element_name = result["cropped_element_name"]
-    cropped_area_img_path = result["crop_area_img_path"]
-    expected_result = result["expected_result"]
+    cropped_area_img_path = RunTimeTestConfigurations.get_solution_screenshot_imgs_path()
+    hw_path = RunTimeTestConfigurations.get_hw_path()
+    expected_result = f"configuration/{hw_path}/lecturer_solution/{test_name}.png"
     test = Test(operations, expected_result, cropped_element_name, cropped_area_img_path, test_name)
     return test
 

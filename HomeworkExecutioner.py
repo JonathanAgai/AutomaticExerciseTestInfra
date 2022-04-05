@@ -5,10 +5,10 @@ hand over all test case runner to report Generator
 """
 
 import os
+import time
 from subprocess import Popen
 from ReportGenerator import *
 from TestcaseRunner import *
-
 
 
 class HomeWorkExecutioner:
@@ -34,11 +34,16 @@ class HomeWorkExecutioner:
             student_id_dir_path = os.path.join(self.students_solution_folder_path, student_id)
             student_exe_path = os.path.join(student_id_dir_path, student_id + '.py')
             print(student_exe_path)
+
             cmd = ['python.exe', student_exe_path]
             p = Popen(cmd)
+            time.sleep(5)
+
             student_data = self.test_case_runner.run(student_id)
             students_data.append(student_data.generate_data())
+
             p.terminate()
+
         report_generator = ReportGenerator(self.results_report_path, students_data, self.report_headers)
         report_generator.generate_report()
 

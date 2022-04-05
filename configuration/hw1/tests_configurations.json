@@ -62,9 +62,39 @@
 					}
 				],
 				"result": {
-					"cropped_element_name": "full_name",
-					"crop_area_img_path": "lecturer_solution",
-					"expected_result": ""
+					"cropped_element_name": "full_name"
+				}
+			},
+			"display_name_with_only_first_name": {
+				"operations": [
+					{
+						"click": "first_name-input"
+					},
+					{
+						"keyboard": "Yoni"
+					},
+					{
+						"click": "display_full_name"
+					}
+				],
+				"result": {
+					"cropped_element_name": "full_name"
+				}
+			},
+			"display_full_name": {
+				"operations": [
+					{
+						"click": "last_name-input"
+					},
+					{
+						"keyboard": "Agai"
+					},
+					{
+						"click": "display_full_name"
+					}
+				],
+				"result": {
+					"cropped_element_name": "full_name"
 				}
 			}
 		}

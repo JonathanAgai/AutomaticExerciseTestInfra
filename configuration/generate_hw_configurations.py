@@ -9,7 +9,7 @@ pyautogui.FAILSAFE = False
 
 
 GUI_ELEMENT_LOCATION_NAME = "gui_elements_locations.json"
-LECTURER_SOLUTION_NAME = "lecturer_solution.py"
+LECTURER_SOLUTION_NAME = "lecturer_solution/lecturer_solution.py"
 
 
 def load_data(hw_path: str):
@@ -17,18 +17,21 @@ def load_data(hw_path: str):
     with open(path, "r") as f:
         return json.load(f)
 
+
 def create_elements_images(hw_path: str):
     data = load_data(hw_path)
     for e_name, e_crop_area in data.items():
         gui_element_img = pyautogui.screenshot(region=e_crop_area)
-        cropped_image_path = f"../configuration/hw1/{e_name}.png"
+        cropped_image_path = f"{hw_path}/gui_elements_images/{e_name}.png"
         gui_element_img.save(cropped_image_path)
 
 
 def execute_lecturer_exec(hw_path: str):
-    test_config_path = f"{hw_path}/tests_configurations.json"
-    TestConfigurationParser.initialize(test_config_path, hw_path)
     RunTimeTestConfigurations.set_is_lecturer_mode(True)
+    RunTimeTestConfigurations.set_hw_path(hw_path)
+    test_config_path = f"{hw_path}/tests_configurations.json"
+    gui_elements_images_path = f"{hw_path}/gui_elements_images"
+    TestConfigurationParser.initialize(test_config_path, gui_elements_images_path)
 
     exec_path = f"{hw_path}/{LECTURER_SOLUTION_NAME}"
     cmd = ['python.exe', exec_path]
@@ -40,12 +43,9 @@ def execute_lecturer_exec(hw_path: str):
     gui_config = GUIConfigurations.get_instance()
     gui_config.find_gui_elements()
 
-    # TODO add lecturer solution somehow and generate the solution images
-
     features = TestConfigurationParser.extract_features(test_config_path)
     for feature in features:
         feature.run_tests("-1")
-
 
     p.terminate()
 

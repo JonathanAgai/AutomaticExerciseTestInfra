@@ -1,8 +1,7 @@
 import time
-import pyautogui
-from TemplateMatcher import TemplateMatcher
 from RunTimeTestConfigurations import *
 from GUIConfigurations import *
+
 
 class Test:
     def __init__(self, operations, expected_result_img_path, crop_element_name, crop_area_img_path, test_name):
@@ -26,13 +25,13 @@ class Test:
 
         cropped_image_path = f"{self.crop_area_img_path}/{self.test_name}.png"
 
-        if RunTimeTestConfigurations.get_is_lecturer_mode():
-            gui_config = GUIConfigurations.get_instance()
-            crop_area = gui_config.get_crop_area(self.crop_element_name)
-            cropped_image = pyautogui.screenshot(region=crop_area)
-            cropped_image.save(cropped_image_path)
-            return
+        gui_config = GUIConfigurations.get_instance()
+        crop_area = gui_config.get_crop_area(self.crop_element_name)
+        cropped_image = pyautogui.screenshot(region=crop_area)
+        cropped_image.save(cropped_image_path)
 
+        if RunTimeTestConfigurations.get_is_lecturer_mode():
+            return
 
         # os.remove(cropped_image_path)
         tm = TemplateMatcher(self.expected_result_img_path, cropped_image_path, self.test_name, student_id)

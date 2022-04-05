@@ -1,3 +1,4 @@
+import os.path
 import time
 from RunTimeTestConfigurations import *
 from GUIConfigurations import *
@@ -23,7 +24,13 @@ class Test:
             operation.execute()
             time.sleep(0.5)
 
-        cropped_image_path = f"{self.crop_area_img_path}/{self.test_name}.png"
+        if RunTimeTestConfigurations.get_is_lecturer_mode():
+            cropped_image_path = f"{self.crop_area_img_path}/{self.test_name}.png"
+        else:
+            cropped_image_base_path = f"{self.crop_area_img_path}/{student_id}"
+            if not os.path.exists(cropped_image_base_path):
+                os.mkdir(cropped_image_base_path)
+            cropped_image_path = f"{cropped_image_base_path}/{self.test_name}.png"
 
         gui_config = GUIConfigurations.get_instance()
         crop_area = gui_config.get_crop_area(self.crop_element_name)

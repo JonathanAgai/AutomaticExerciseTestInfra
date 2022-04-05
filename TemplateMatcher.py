@@ -43,8 +43,8 @@ class TemplateMatcher:
 
         # self.draw_rectangle_around_target(loc, image, w, h)
 
-        if not self.match_found:
-            self.save_result_image(template)
+        # if not self.match_found:
+        #     self.save_result_image(template)
 
         return self.match_found
 

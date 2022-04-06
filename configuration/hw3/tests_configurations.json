@@ -1,0 +1,81 @@
+{
+	"gui_elements": {
+		"screen_width": 250,
+		"screen_height": 200,
+		"screen_offset_x": 15,
+		"screen_offset_y": 15,
+
+		"elements": {
+			"person" : {
+				"type": "label",
+				"image_name": "person.png",
+				"input": {
+					"orientation": "down",
+					"width": 74,
+					"height": 18
+				}
+			},
+			"workplace" : {
+				"type": "label",
+				"image_name": "workplace.png",
+				"input": {
+					"orientation": "down",
+					"width": 110,
+					"height": 18
+				}
+			},
+			"bruce_wayne" : {
+				"type": "button",
+				"image_name": "bruce_wayne.png"
+			},
+			"clark_kent": {
+				"type": "button",
+				"image_name": "clark_kent.png"
+			},
+			"rick_blaine" : {
+				"type": "button",
+				"image_name": "rick_blaine.png"
+			},
+			"willie_wonka" : {
+				"type": "button",
+				"image_name": "willie_wonka.png"
+			},
+			"chocolate_factory" : {
+				"type": "button",
+				"image_name": "chocolate_factory.png"
+			},
+			"daily_bugle" : {
+				"type": "button",
+				"image_name": "daily_bugle.png"
+			},
+			"daily_planet" : {
+				"type": "button",
+				"image_name": "daily_planet.png"
+			},
+			"rick's_american_cafe" : {
+				"type": "button",
+				"image_name": "rick's_american_cafe.png"
+			},
+			"wayne_enterprises" : {
+				"type": "button",
+				"image_name": "wayne_enterprises.png"
+			},
+			"determine_if_match_is_correct" : {
+				"type": "button",
+				"image_name": "determine_if_match_is_correct.png"
+			},
+			"answer" : {
+				"type": "label",
+				"image_name": "answer.png",
+				"input": {
+					"orientation": "right",
+					"width": 53,
+					"height": 20
+				}
+			}
+		}
+	},
+
+	"features": {
+	}
+}

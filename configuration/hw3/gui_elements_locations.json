@@ -1,0 +1,15 @@
+{
+  "person": [29,42,74,18],
+  "workplace": [125,43,110,17],
+  "bruce_wayne": [30,65,70,17],
+  "clark_kent": [30,80,70,17],
+  "rick_blaine": [30,113,70,14],
+  "willie_wonka": [41,127,72,17],
+  "chocolate_factory": [126,65,111,17],
+  "daily_bugle": [126,80,111,17],
+  "daily_planet":[126,96,111,17],
+  "rick's_american_cafe": [126,112,111,17],
+  "wayne_enterprises": [126,131,111,20],
+  "determine_if_match_is_correct": [52,154,160,19],
+  "answer": [70,182,50,20]
+}

@@ -1,8 +1,9 @@
 {
-  "people_list": [29,74,123,132],
+  "people_list": [30,74,123,132],
   "workplace_list": [173,76,179,128],
   "bruce_wayne": [29,74,118,25],
   "clark_kent": [29,104,118,25],
+  "peter_parker": [29,124,118,25],
   "rick_blaine": [29,155,118,25],
   "willie_wonka": [29,181,118,25],
   "chocolate_factory": [174,76,178,25],

@@ -11,7 +11,7 @@
 				"image_name": "people_list.png",
 				"input": {
 					"orientation": "down",
-					"width": 74,
+					"width": 73,
 					"height": 132
 				}
 			},
@@ -31,6 +31,10 @@
 			"clark_kent": {
 				"type": "button",
 				"image_name": "clark_kent.png"
+			},
+			"peter_parker": {
+				"type": "button",
+				"image_name": "peter_parker.png"
 			},
 			"rick_blaine" : {
 				"type": "button",
@@ -85,6 +89,70 @@
 					},
 					{
 						"click": "wayne_enterprises"
+					},
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			},
+			"clark_kent_and_daily_planet": {
+				"operations": [
+					{
+						"click": "clark_kent"
+					},
+					{
+						"click": "daily_planet"
+					},
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			},
+			"peter_parker_and_daily_bugle": {
+				"operations": [
+					{
+						"click": "peter_parker"
+					},
+					{
+						"click": "daily_bugle"
+					},
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			},
+			"rick_blaine_and_rick's_american_cafe": {
+				"operations": [
+					{
+						"click": "rick_blaine"
+					},
+					{
+						"click": "rick's_american_cafe"
+					},
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			},
+			"willie_wonka_and_chocolate_factory": {
+				"operations": [
+					{
+						"click": "willie_wonka"
+					},
+					{
+						"click": "chocolate_factory"
 					},
 					{
 						"click": "determine_if_match_is_correct"

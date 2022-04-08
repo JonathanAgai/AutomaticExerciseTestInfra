@@ -20,6 +20,7 @@ def parse_features(data):
     json_features = data["features"]
     num_features = len(json_features.keys())
     features = []
+    print("***************START PARSE TEST CONFIGURATION********************")
     for feature_name, feature_tests in json_features.items():
         print(feature_name)
 
@@ -32,6 +33,7 @@ def parse_features(data):
         feature_score_percent = 1 / num_features
         feature = Feature(tests, feature_score_percent)
         features.append(feature)
+    print("***************FINISH PARSE TEST CONFIGURATION********************")
     return features
 
 

@@ -1,15 +1,15 @@
 {
-  "person": [29,42,74,18],
-  "workplace": [125,43,110,17],
-  "bruce_wayne": [30,65,70,17],
-  "clark_kent": [30,80,70,17],
-  "rick_blaine": [30,113,70,14],
-  "willie_wonka": [41,127,72,17],
-  "chocolate_factory": [126,65,111,17],
-  "daily_bugle": [126,80,111,17],
-  "daily_planet":[126,96,111,17],
-  "rick's_american_cafe": [126,112,111,17],
-  "wayne_enterprises": [126,131,111,20],
-  "determine_if_match_is_correct": [52,154,160,19],
-  "answer": [70,182,50,20]
+  "people_list": [29,74,123,132],
+  "workplace_list": [173,76,179,128],
+  "bruce_wayne": [29,74,118,25],
+  "clark_kent": [29,104,118,25],
+  "rick_blaine": [29,155,118,25],
+  "willie_wonka": [29,181,118,25],
+  "chocolate_factory": [174,76,178,25],
+  "daily_bugle": [174,101,178,25],
+  "daily_planet":[174,129,178,25],
+  "rick's_american_cafe": [174,154,178,25],
+  "wayne_enterprises": [174,182,111,25],
+  "determine_if_match_is_correct": [72,216,238,35],
+  "answer": [90,260,77,32]
 }

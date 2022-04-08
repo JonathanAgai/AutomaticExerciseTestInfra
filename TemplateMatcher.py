@@ -36,6 +36,7 @@ class TemplateMatcher:
         res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)
         threshold = 0.99
 
+        print(f"test name: {self.test_name}, res: {np.amax(res)}")
         if np.amax(res) >= threshold:
             self.match_found = True
 
@@ -61,8 +62,8 @@ class TemplateMatcher:
         # cv2.waitKey(0)
 
         res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)
-        threshold = 0.99
-
+        threshold = 0.985
+        print(f"res: {np.amax(res)}")
         if np.amax(res) < threshold:
             # Failed to match
             return []

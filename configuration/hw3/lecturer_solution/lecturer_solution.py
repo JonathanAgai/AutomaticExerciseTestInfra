@@ -10,8 +10,13 @@ def checkAnswer():
            conOFentAnswer.set("INCORRECT")
     except Exception:
         conOFentAnswer.set("INCORRECT")
+    #Added clear listbox curse selecting
+    lstPeople.selection_clear(0, END)
+    lstPlaces.selection_clear(0, END)
 
 window = Tk()
+#Added Scalling
+window.tk.call('tk', 'scaling', 2.0)
 window.title("Workplaces")
 window.wm_attributes("-topmost", 1)
 Label(window, text="Person").grid(row=0, column=0)
@@ -40,7 +45,7 @@ conOFentAnswer = StringVar()
 entAnswer = Entry(window, width=10, \
                   textvariable=conOFentAnswer, state="readonly")
 entAnswer.grid(row=3, column=1, padx=10, pady=(0,5), sticky=W)
-#most be here
-window.geometry('%dx%d+%d+%d' % (250, 200, 10, 10))
+#Added Geometry
+window.geometry('%dx%d+%d+%d' % (400, 300, 10, 10))
 window.mainloop()
 

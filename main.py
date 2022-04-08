@@ -19,4 +19,3 @@ if __name__ == '__main__':
                                        json_configuration_file_path)
 
     homework_exe.run()
-

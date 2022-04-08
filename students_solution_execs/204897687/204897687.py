@@ -2,7 +2,8 @@ from tkinter import *
 
 
 def fullname():
-    conOFentFullName.set(conOFentFirstName.get())
+    conOFentFullName.set(conOFentFirstName.get() + " " + conOFentLastName.get()[0:-1])
+    #conOFentFullName.set(conOFentFirstName.get())
 
 
 window = Tk()

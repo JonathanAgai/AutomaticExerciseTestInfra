@@ -7,6 +7,7 @@ def fullname():
 
 
 window = Tk()
+window.tk.call('tk', 'scaling', 2.0)
 window.title("Full Name")
 window.wm_attributes("-topmost", 1)
 Label(window, text="Last name:").grid(row=0, column=0, sticky=E)
@@ -29,7 +30,7 @@ entFullName = Entry(window, width=15, state="readonly", textvariable=conOFentFul
 # entFullName = Entry(window, state="readonly", textvariable=conOFentFullName)
 entFullName.grid(row=3, column=1, padx=5)
 
-window.geometry('%dx%d+%d+%d' % (200, 200, 10, 10))
+window.geometry('%dx%d+%d+%d' % (300, 200, 10, 10))
 window.mainloop()
 
 

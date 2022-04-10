@@ -1,6 +1,6 @@
 {
 	"gui_elements": {
-		"screen_width": 200,
+		"screen_width": 300,
 		"screen_height": 200,
 		"screen_offset_x": 15,
 		"screen_offset_y": 15,
@@ -11,8 +11,8 @@
 				"image_name": "last_name.png",
 				"input": {
 					"orientation": "right",
-					"width": 94,
-					"height": 20
+					"width": 151,
+					"height": 30
 				}
 			},
 			"first_name" : {
@@ -20,8 +20,8 @@
 				"image_name": "first_name.png",
 				"input": {
 					"orientation": "right",
-					"width": 94,
-					"height": 20
+					"width": 151,
+					"height": 30
 				}
 			},
 			"full_name" : {
@@ -29,8 +29,8 @@
 				"image_name": "full_name.png",
 				"input": {
 					"orientation": "right",
-					"width": 94,
-					"height": 20
+					"width": 151,
+					"height": 30
 				}
 			},
 			"display_full_name": {

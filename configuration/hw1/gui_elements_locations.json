@@ -1,6 +1,6 @@
 {
-  "last_name": [20,40,65,20],
-  "first_name":[20,65,65,20],
-  "display_full_name": [50,95,105,25],
-  "full_name": [20,130,65,20]
+  "last_name": [20,45,93,30],
+  "first_name":[20,75,93,30],
+  "display_full_name": [70,117,150,37],
+  "full_name": [20,169,93,30]
 }

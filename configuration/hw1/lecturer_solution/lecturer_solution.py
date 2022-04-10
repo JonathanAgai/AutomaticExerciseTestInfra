@@ -30,7 +30,7 @@ entFullName = Entry(window, width=15, state="readonly", textvariable=conOFentFul
 # entFullName = Entry(window, state="readonly", textvariable=conOFentFullName)
 entFullName.grid(row=3, column=1, padx=5)
 
-window.geometry('%dx%d+%d+%d' % (200, 200, 10, 10))
+window.geometry('%dx%d+%d+%d' % (300, 200, 10, 10))
 window.mainloop()
 
 

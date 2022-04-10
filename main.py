@@ -12,7 +12,7 @@ if __name__ == '__main__':
     gui_elements_images_path = f"configuration/{hw_path}/gui_elements_images"
     TestConfigurationParser.initialize(json_configuration_file_path, gui_elements_images_path)
 
-    students_solution_folder_path = 'students_solution_execs'
+    students_solution_folder_path = f'students_solution_execs/{hw_path}'
     results_report_path = 'results_report'
     homework_exe = HomeWorkExecutioner(students_solution_folder_path,
                                        results_report_path,

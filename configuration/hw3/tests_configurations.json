@@ -12,7 +12,7 @@
 				"input": {
 					"orientation": "down",
 					"width": 73,
-					"height": 132
+					"height": 0
 				}
 			},
 			"workplace_list" : {
@@ -21,7 +21,7 @@
 				"input": {
 					"orientation": "down",
 					"width": 110,
-					"height": 128
+					"height": 0
 				}
 			},
 			"bruce_wayne" : {
@@ -81,6 +81,20 @@
 	},
 
 	"features": {
+		"is_list_ordered": {
+			"is_people_list_ordered": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "people_list"
+				}
+			},
+			"is_workplace_list_ordered": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "workplace_list"
+				}
+			}
+		},
 		"picking_right_pair": {
 			"bruce_wayne_and_wayne_enterprises": {
 				"operations": [
@@ -153,6 +167,51 @@
 					},
 					{
 						"click": "chocolate_factory"
+					},
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			}
+		},
+		"picking_wrong_pair": {
+			"bruce_wayne_and_chocolate_factory": {
+				"operations": [
+					{
+						"click": "bruce_wayne"
+					},
+					{
+						"click": "chocolate_factory"
+					},
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			}
+		},
+		"picking_zero_pair": {
+			"determine_match_without_picking_a_pair": {
+				"operations": [
+					{
+						"click": "determine_if_match_is_correct"
+					}
+				],
+				"result": {
+					"cropped_element_name": "answer"
+				}
+			}
+		},
+		"picking_only_one_element": {
+			"determine_match_with_one_element": {
+				"operations": [
+					{
+						"click": "bruce_wayne"
 					},
 					{
 						"click": "determine_if_match_is_correct"

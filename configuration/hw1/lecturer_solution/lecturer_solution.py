@@ -6,6 +6,8 @@ def fullname():
 
 
 window = Tk()
+#Added Scalling
+window.tk.call('tk', 'scaling', 2.0)
 window.title("Full Name")
 window.wm_attributes("-topmost", 1)
 Label(window, text="Last name:").grid(row=0, column=0, sticky=E)

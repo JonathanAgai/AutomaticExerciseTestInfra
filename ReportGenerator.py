@@ -13,9 +13,9 @@ class ReportGenerator:
         for student_data in self.students_data:
             self.student_row_generator(student_data)
         result = pd.concat(self.frames)
-        result.to_csv(f'{self.results_report_path}\\data.csv', index=None)
+        result.to_csv(f'{self.results_report_path}\\Students_Grades.csv', index=None)
 
-        df = pd.read_csv(f'{self.results_report_path}\\data.csv')
+        df = pd.read_csv(f'{self.results_report_path}\\Students_Grades.csv')
 
         # then to_excel method converting the .csv file to .xlsx file.
         df.to_excel("Students_Grades.xlsx", sheet_name="Students_Grades", index=False)

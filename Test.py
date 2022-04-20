@@ -20,17 +20,18 @@ class Test:
 
     def run(self, student_id):
         time.sleep(0.5)
+        string_test_name = self.test_name.replace("_", " ")
         for operation in self.operations:
             operation.execute()
             time.sleep(0.5)
 
         if RunTimeTestConfigurations.get_is_lecturer_mode():
-            cropped_image_path = f"{self.crop_area_img_path}/{self.test_name}.png"
+            cropped_image_path = f"{self.crop_area_img_path}/{string_test_name}.png"
         else:
             cropped_image_base_path = f"{self.crop_area_img_path}/{student_id}"
             if not os.path.exists(cropped_image_base_path):
                 os.mkdir(cropped_image_base_path)
-            cropped_image_path = f"{cropped_image_base_path}/{self.test_name}.png"
+            cropped_image_path = f"{cropped_image_base_path}/{string_test_name}.png"
 
         gui_config = GUIConfigurations.get_instance()
         crop_area = gui_config.get_crop_area(self.crop_element_name)

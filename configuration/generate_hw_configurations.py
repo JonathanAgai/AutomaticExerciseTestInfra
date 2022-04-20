@@ -21,8 +21,9 @@ def load_data(hw_path: str):
 def create_elements_images(hw_path: str):
     data = load_data(hw_path)
     for e_name, e_crop_area in data.items():
+        string_e_name = e_name.replace("_", " ")
         gui_element_img = pyautogui.screenshot(region=e_crop_area)
-        cropped_image_path = f"{hw_path}/gui_elements_images/{e_name}.png"
+        cropped_image_path = f"{hw_path}/gui_elements_images/{string_e_name}.png"
         gui_element_img.save(cropped_image_path)
 
 

@@ -8,7 +8,7 @@
 		"elements": {
 			"people_list" : {
 				"type": "label",
-				"image_name": "people_list.png",
+				"image_name": "people list.png",
 				"input": {
 					"orientation": "down",
 					"width": 73,
@@ -17,7 +17,7 @@
 			},
 			"workplace_list" : {
 				"type": "label",
-				"image_name": "workplace_list.png",
+				"image_name": "workplace list.png",
 				"input": {
 					"orientation": "down",
 					"width": 110,
@@ -26,47 +26,47 @@
 			},
 			"bruce_wayne" : {
 				"type": "button",
-				"image_name": "bruce_wayne.png"
+				"image_name": "bruce wayne.png"
 			},
 			"clark_kent": {
 				"type": "button",
-				"image_name": "clark_kent.png"
+				"image_name": "clark kent.png"
 			},
 			"peter_parker": {
 				"type": "button",
-				"image_name": "peter_parker.png"
+				"image_name": "peter parker.png"
 			},
 			"rick_blaine" : {
 				"type": "button",
-				"image_name": "rick_blaine.png"
+				"image_name": "rick blaine.png"
 			},
 			"willie_wonka" : {
 				"type": "button",
-				"image_name": "willie_wonka.png"
+				"image_name": "willie wonka.png"
 			},
 			"chocolate_factory" : {
 				"type": "button",
-				"image_name": "chocolate_factory.png"
+				"image_name": "chocolate factory.png"
 			},
 			"daily_bugle" : {
 				"type": "button",
-				"image_name": "daily_bugle.png"
+				"image_name": "daily bugle.png"
 			},
 			"daily_planet" : {
 				"type": "button",
-				"image_name": "daily_planet.png"
+				"image_name": "daily planet.png"
 			},
 			"rick's_american_cafe" : {
 				"type": "button",
-				"image_name": "rick's_american_cafe.png"
+				"image_name": "rick's american cafe.png"
 			},
 			"wayne_enterprises" : {
 				"type": "button",
-				"image_name": "wayne_enterprises.png"
+				"image_name": "wayne enterprises.png"
 			},
 			"determine_if_match_is_correct" : {
 				"type": "button",
-				"image_name": "determine_if_match_is_correct.png"
+				"image_name": "determine if match is correct.png"
 			},
 			"answer" : {
 				"type": "label",

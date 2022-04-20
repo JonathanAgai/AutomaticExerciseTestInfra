@@ -8,7 +8,7 @@
 		"elements": {
 			"last_name" : {
 				"type": "label",
-				"image_name": "last_name.png",
+				"image_name": "last name.png",
 				"input": {
 					"orientation": "right",
 					"width": 151,
@@ -17,7 +17,7 @@
 			},
 			"first_name" : {
 				"type": "label",
-				"image_name": "first_name.png",
+				"image_name": "first name.png",
 				"input": {
 					"orientation": "right",
 					"width": 151,
@@ -26,7 +26,7 @@
 			},
 			"full_name" : {
 				"type": "label",
-				"image_name": "full_name.png",
+				"image_name": "full name.png",
 				"input": {
 					"orientation": "right",
 					"width": 151,
@@ -35,7 +35,7 @@
 			},
 			"display_full_name": {
 				"type": "button",
-				"image_name": "display_full_name.png"
+				"image_name": "display full name.png"
 			}
 
 		}

@@ -5,12 +5,13 @@ from Feature import *
 
 
 def parse_features_headers(data):
-    features_headers = ['student_ids']
+    features_headers = ['student ids']
 
     json_features = data["features"]
     for feature_name, feature_tests in json_features.items():
-        features_headers.append(f'{feature_name}_score')
-        features_headers.append(f'{feature_name}_review')
+        feature_name = feature_name.replace("_", " ")
+        features_headers.append(f'{feature_name} score')
+        features_headers.append(f'{feature_name} review')
 
     features_headers.append('final_score')
     return features_headers
@@ -43,7 +44,8 @@ def parse_test(test_name, test_values):
     cropped_element_name = result["cropped_element_name"]
     cropped_area_img_path = RunTimeTestConfigurations.get_solution_screenshot_imgs_path()
     hw_path = RunTimeTestConfigurations.get_hw_path()
-    expected_result = f"configuration/{hw_path}/lecturer_solution/{test_name}.png"
+    string_test_name = test_name.replace("_", " ")
+    expected_result = f"configuration/{hw_path}/lecturer_solution/{string_test_name}.png"
     test = Test(operations, expected_result, cropped_element_name, cropped_area_img_path, test_name)
     return test
 

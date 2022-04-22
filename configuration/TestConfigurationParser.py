@@ -13,7 +13,7 @@ def parse_features_headers(data):
         features_headers.append(f'{feature_name} score')
         features_headers.append(f'{feature_name} review')
 
-    features_headers.append('final_score')
+    features_headers.append('final score')
     return features_headers
 
 
@@ -23,17 +23,20 @@ def parse_features(data):
     features = []
     print("***************START PARSE TEST CONFIGURATION********************")
     for feature_name, feature_tests in json_features.items():
-        print(feature_name)
+        print(f"Parsing Feature:{feature_name}")
 
         tests = []
         for test_name, test_values in feature_tests.items():
-            print(test_name)
+            print(f"Parsing test:{test_name}")
             test = parse_test(test_name, test_values)
             tests.append(test)
+            print(f"finish Test parsing: {test_name}")
 
         feature_score_percent = 1 / num_features
         feature = Feature(tests, feature_score_percent)
         features.append(feature)
+        print(f"finish Feature parsing: {feature_name}")
+
     print("***************FINISH PARSE TEST CONFIGURATION********************")
     return features
 
@@ -59,26 +62,112 @@ def extract_xy_from_operation(element_name_operation, gui_config):
     return x, y
 
 
+def extract_operation_value(element_name_operation):
+    values_str = element_name_operation.split("-")[0]
+    if len(values_str) == 3:
+        return int(values_str[-1])
+
+    return None
+
+
+def parse_operation_value(operation_value_str):
+    values_str = operation_value_str.split("-")
+    element_name = values_str[0]
+    use_input = False
+    operation_value_number = None
+
+    if len(values_str) == 2:
+        if values_str[1] == "input":
+            use_input = True
+        else:
+            operation_value_number = int(values_str[1])
+    elif len(values_str) == 3:
+        if values_str[1] != "input":
+            print(f"Invalid Line value:{operation_value_str}, when having 3 arguments - the middle must be input")
+            return None
+
+        use_input = True
+        operation_value_number = int(values_str[2])
+    else:
+        print(f"Invalid Line value:{operation_value_str}, invalid number of arguments: {len(values_str)}")
+        return None
+
+    print(f"Parse {operation_value_str} into -> {element_name},{use_input},{operation_value_number}")
+    return element_name, use_input, operation_value_number
+
+
+def parse_generic_click_operation(gui_config, element_name, use_input, operation_value_number):
+    if operation_value_number is not None and use_input is False:
+        print(f"Invalid Click operation trying to work on operation_value={operation_value_number}, use_input={use_input}")
+        return None
+
+    if use_input:
+        x, y = gui_config.get_elements_input_xy(element_name, operation_value_number)
+    else:
+        x, y = gui_config.get_elements_xy(element_name, operation_value_number)
+
+    return x, y
+
+
+def parse_click_operation(gui_config, element_name, use_input, operation_value_number):
+    x, y = parse_generic_click_operation(gui_config, element_name, use_input, operation_value_number)
+    return Click(x, y)
+
+
+def parse_double_click_operation(gui_config, element_name, use_input, operation_value_number):
+    x, y = parse_generic_click_operation(gui_config, element_name, use_input, operation_value_number)
+    return DoubleClick(x, y)
+
+
+def parse_scroll_up_operation(gui_config, element_name, operation_value_number):
+    if operation_value_number is None:
+        return None
+    x, y = gui_config.get_elements_xy_scroll_up(element_name)
+    num_clicks = operation_value_number
+    return ScrollUp(num_clicks, x, y)
+
+
+def parse_scroll_down_operation(gui_config, element_name, operation_value_number):
+    if operation_value_number is None:
+        return None
+    x, y = gui_config.get_elements_xy_scroll_down(element_name)
+    num_clicks = operation_value_number
+    return ScrollDown(num_clicks, x, y)
+
+
 def extract_test_configuration_operations(test_operations):
     gui_config = GUIConfigurations.get_instance()
 
     operations = []
     for operation in test_operations:
-        for operation_name, values in operation.items():
-            print(f"{operation_name}: {operation}")
+        for operation_name, operation_value_str in operation.items():
+            operation = None
+            print(f"Parsing Operation: {operation_name}")
             if operation_name == "click":
-                # values of click operation is the element name to be clicked
-                gui_element_name = values
-                x, y = extract_xy_from_operation(gui_element_name, gui_config)
-                operation = Click(x, y)
-            elif operation_name == "keyboard":
-                operation = Keyboard(values)
+                element_name, use_input, operation_value_number = parse_operation_value(operation_value_str)
+                operation = parse_click_operation(gui_config, element_name, use_input, operation_value_number)
+
             elif operation_name == "double_click":
-                gui_element_name = values
-                x, y = extract_xy_from_operation(gui_element_name, gui_config)
-                operation = DoubleClick(x, y)
+                element_name, use_input, operation_value_number = parse_operation_value(operation_value_str)
+                operation = parse_double_click_operation(gui_config, element_name, use_input, operation_value_number)
+
+            elif operation_name == "keyboard":
+                operation = Keyboard(operation_value_str)
+
             elif operation_name == "delete":
                 operation = Delete()
+
+            elif operation_name == "scroll_up":
+                element_name, _, operation_value_number = parse_operation_value(operation_value_str)
+                operation = parse_scroll_up_operation(gui_config, element_name, operation_value_number)
+
+            elif operation_name == "scroll_down":
+                element_name, _, operation_value_number = parse_operation_value(operation_value_str)
+                operation = parse_scroll_down_operation(gui_config, element_name, operation_value_number)
+
+            if operation is None:
+                print("Invalid None Operation: Exit")
+                return None
 
             operations.append(operation)
     return operations

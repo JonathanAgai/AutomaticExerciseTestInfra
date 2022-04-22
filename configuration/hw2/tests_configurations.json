@@ -1,0 +1,91 @@
+{
+	"gui_elements": {
+		"screen_width": 700,
+		"screen_height": 300,
+		"screen_offset_x": 15,
+		"screen_offset_y": 15,
+
+		"elements": {
+			"countries_list" : {
+				"type": "list",
+				"image_name": "countries list.png",
+				"input": {
+					"orientation": "down",
+					"width": 290,
+					"height": 25
+
+				},
+				"input-vertical-scrollbar": {
+					"orientation": "right",
+					"width": 30,
+					"height": 30
+				}
+			},
+			"continent" : {
+				"type": "label",
+				"image_name": "continent.png",
+				"input": {
+					"orientation": "right",
+					"width": 153,
+					"height": 26
+				}
+			},
+			"population" : {
+				"type": "label",
+				"image_name": "population.png",
+				"input": {
+					"orientation": "right",
+					"width": 153,
+					"height": 26
+				}
+			},
+			"area" : {
+				"type": "label",
+				"image_name": "area.png",
+				"input": {
+					"orientation": "right",
+					"width": 153,
+					"height": 26
+				}
+			}
+		}
+	},
+
+
+	"features": {
+		"countries_info": {
+			"bahamas": {
+				"operations": [
+					{
+						"scroll_down": "countries_list-3"
+					},
+					{
+							"click": "countries_list-input-8"
+					},
+					{
+						"scroll_up": "countries_list-3"
+					}
+				],
+				"result": {
+					"cropped_element_name": "continent"
+				}
+			},
+			"zambia": {
+				"operations": [
+					{
+						"scroll_down": "countries_list-182"
+					},
+					{
+							"click": "countries_list-input-8"
+					},
+					{
+						"scroll_up": "countries_list-182"
+					}
+				],
+				"result": {
+					"cropped_element_name": "population"
+				}
+			}
+		}
+	}
+}

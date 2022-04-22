@@ -63,10 +63,12 @@ class TemplateMatcher:
 
         res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)
         threshold = 0.985
-        print(f"res: {np.amax(res)}")
+        print(f"match percentage: {np.amax(res)}")
         if np.amax(res) < threshold:
-            # Failed to match
+            print(f"Failed to find match, threshold = {threshold}")
             return []
+
+        print("Match found")
 
         loc = np.where(res >= threshold)
         for pt in zip(*loc[::-1]):

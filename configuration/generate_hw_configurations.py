@@ -1,4 +1,5 @@
 import json
+import os.path
 from subprocess import Popen
 from time import sleep
 import pyautogui
@@ -16,6 +17,18 @@ def load_data(hw_path: str):
     path = f"{hw_path}/{GUI_ELEMENT_LOCATION_NAME}"
     with open(path, "r") as f:
         return json.load(f)
+
+
+def generate_hw_configuration_tree(hw_path:str):
+    directories = [
+        f"{hw_path}",
+        f"{hw_path}/gui_elements_images",
+        f"{hw_path}/lecturer_solution"
+    ]
+
+    for d in directories:
+        if not os.path.exists(d):
+            os.mkdir(d)
 
 
 def create_elements_images(hw_path: str):
@@ -58,5 +71,6 @@ if __name__ == '__main__':
         sys.exit(-1)
 
     hw_name = sys.argv[1]
+    generate_hw_configuration_tree(hw_name)
     execute_lecturer_exec(hw_name)
 

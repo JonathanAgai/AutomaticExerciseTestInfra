@@ -53,4 +53,37 @@ class Delete(Operation):
         print(f"delete")
 
 
+class Scroll(Operation):
+    def __init__(self, scroll_type, clicks, x, y):
+        self.scroll_type = scroll_type
+        self.clicks = clicks
+        self.x = x
+        self.y = y
 
+    def execute(self):
+        pyautogui.click(self.x, self.y, clicks=self.clicks  )
+
+    def print(self):
+        print(f"{self.scroll_type} {self.clicks}, {self.x}, {self.y}")
+
+
+class ScrollUp(Scroll):
+    def __init__(self, clicks, x, y):
+        super().__init__("ScrollUp", clicks, x, y)
+
+    def execute(self):
+        super().execute()
+
+    def print(self):
+        super().execute()
+
+
+class ScrollDown(Scroll):
+    def __init__(self, clicks, x, y):
+        super().__init__("ScrollDown", clicks, x, y)
+
+    def execute(self):
+        super().execute()
+
+    def print(self):
+        super().execute()

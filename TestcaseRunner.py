@@ -27,8 +27,7 @@ class TestcaseRunner:
             # TODO change with revamp to report
             for _ in range(len(self.features)):
                 self.features_scores.append('0/0')
-                review_str = 'could not find gui elements'
-                self.features_reviews.append(review_str)
+                self.features_reviews.append('score: 0/0, could not find gui elements')
             self.final_score = '0.0/100.0'
 
             return StudentData(student_id, self.features_scores, self.features_reviews, self.final_score)

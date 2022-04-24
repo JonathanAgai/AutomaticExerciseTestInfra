@@ -16,12 +16,13 @@ class StudentData:
 
     def generate_data(self):
         data = [self.student_id]
+        failed_solution_str = 'score: 0/0, could not find gui elements'
         for score, test_reviews in zip(self.features_scores, self.features_reviews):
-            data.append(score)
-            if "_" in test_reviews:
+            if failed_solution_str not in test_reviews:
                 test_reviews_str = '\n'.join(test_reviews)
                 test_reviews_str = test_reviews_str.replace("_", " ")
-                data.append(test_reviews_str)
+                test_reviews_and_score = f"score:{score}\n" + test_reviews_str
+                data.append(test_reviews_and_score)
             else:
                 data.append(test_reviews)
 
@@ -30,8 +31,8 @@ class StudentData:
 
     def print(self):
         print(f"student_id: {self.student_id},")
-        for feature_score, feature_review in zip(self.features_scores, self.features_reviews):
-            print(f"feature_score: {feature_score}, feature_review: {feature_review}")
+        for score, feature_review in zip(self.features_scores, self.features_reviews):
+            print(f"feature_score: {score}, feature_review: {feature_review}")
         print(f"final_score: {self.final_score}")
 
 

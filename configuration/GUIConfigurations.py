@@ -88,12 +88,12 @@ class GUIConfigurations:
 
             element_location = TemplateMatcher.find_location(app_image, element_img_path)
 
+            if len(element_location) == 0:
+                print(f"*******Failed to find element: {e_key}*******")
+                return False
+
             element_location[0] += self.gui_elements["screen_offset_x"]
             element_location[1] += self.gui_elements["screen_offset_y"]
-
-            if len(element_location) == 0:
-                print(f"couldn't find element: {e_key}")
-                return False
 
             e_val["location"] = element_location
 

@@ -17,10 +17,14 @@ class StudentData:
     def generate_data(self):
         data = [self.student_id]
         for score, test_reviews in zip(self.features_scores, self.features_reviews):
-            test_reviews_str = '\n'.join(test_reviews)
-            test_reviews_str = test_reviews_str.replace("_", " ")
             data.append(score)
-            data.append(test_reviews_str)
+            if "_" in test_reviews:
+                test_reviews_str = '\n'.join(test_reviews)
+                test_reviews_str = test_reviews_str.replace("_", " ")
+                data.append(test_reviews_str)
+            else:
+                data.append(test_reviews)
+
         data.append(self.final_score)
         return data
 

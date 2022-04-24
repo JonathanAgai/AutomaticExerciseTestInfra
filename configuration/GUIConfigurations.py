@@ -173,11 +173,11 @@ class GUIConfigurations:
         element_location = self.get_element_location(element_name)
         if len(element_location) == 0:
             return []
-        e_x,e_y,e_w,e_h = element_location
+        e_x, e_y, e_w, e_h = element_location
         vs_w = gui_element_vertical_scroll_input["width"]
         vs_h = gui_element_vertical_scroll_input["height"]
 
-        return [e_x,e_y,e_w,e_h,vs_w,vs_h]
+        return [e_x, e_y, e_w, e_h, vs_w, vs_h]
 
     def get_location_xy_center(self, location):
         x, y, w, h = location

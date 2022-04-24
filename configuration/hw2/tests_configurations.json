@@ -17,8 +17,8 @@
 				},
 				"input-vertical-scrollbar": {
 					"orientation": "right",
-					"width": 30,
-					"height": 30
+					"width": 14,
+					"height": 14
 				}
 			},
 			"continent" : {
@@ -51,39 +51,61 @@
 		}
 	},
 
-
 	"features": {
-		"countries_info": {
-			"bahamas": {
+		"bahamas": {
+			"bahamas_continent": {
 				"operations": [
 					{
 						"scroll_down": "countries_list-3"
 					},
 					{
 							"click": "countries_list-input-8"
-					},
-					{
-						"scroll_up": "countries_list-3"
 					}
 				],
 				"result": {
 					"cropped_element_name": "continent"
 				}
 			},
-			"zambia": {
+			"bahamas_population": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "population"
+				}
+			},
+			"bahamas_area": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "area"
+				}
+			}
+		},
+		"zambia": {
+			"zambia_continent": {
 				"operations": [
+					{
+						"scroll_up": "countries_list-3"
+					},
 					{
 						"scroll_down": "countries_list-182"
 					},
 					{
-							"click": "countries_list-input-8"
-					},
-					{
-						"scroll_up": "countries_list-182"
+						"click": "countries_list-input-9"
 					}
 				],
 				"result": {
+					"cropped_element_name": "continent"
+				}
+			},
+			"zambia_population": {
+				"operations": [],
+				"result": {
 					"cropped_element_name": "population"
+				}
+			},
+			"zambia_area": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "area"
 				}
 			}
 		}

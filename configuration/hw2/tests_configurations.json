@@ -52,9 +52,87 @@
 	},
 
 	"features": {
+				"afghanistan": {
+			"afghanistan_continent": {
+				"operations": [
+					{
+							"click": "countries_list-input-0"
+					}
+				],
+				"result": {
+					"cropped_element_name": "continent"
+				}
+			},
+			"afghanistan_population": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "population"
+				}
+			},
+			"afghanistan_area": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "area"
+				}
+			}
+		},
+		"albania": {
+			"albania_continent": {
+				"operations": [
+					{
+							"click": "countries_list-input-1"
+					}
+				],
+				"result": {
+					"cropped_element_name": "continent"
+				}
+			},
+			"albania_population": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "population"
+				}
+			},
+			"albania_area": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "area"
+				}
+			}
+		},
+		"Azerbaijan": {
+			"Azerbaijan_continent": {
+				"operations": [
+					{
+						"scroll_down": "countries_list-1"
+					},
+					{
+							"click": "countries_list-input-9"
+					}
+				],
+				"result": {
+					"cropped_element_name": "continent"
+				}
+			},
+			"Azerbaijan_population": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "population"
+				}
+			},
+			"Azerbaijan_area": {
+				"operations": [],
+				"result": {
+					"cropped_element_name": "area"
+				}
+			}
+		},
 		"bahamas": {
 			"bahamas_continent": {
 				"operations": [
+					{
+						"scroll_up": "countries_list-1"
+					},
 					{
 						"scroll_down": "countries_list-3"
 					},

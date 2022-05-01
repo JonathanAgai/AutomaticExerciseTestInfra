@@ -1,11 +1,16 @@
 import tkinter as tk
 import tkinter.font as tkFont
+from tkinter import filedialog
 from HomeworkExecutioner import *
 from RunTimeTestConfigurations import *
 
 
 class App:
     def __init__(self, root):
+        #init paths
+        self.teachers_folder_path = ""
+        self.students_work_folder_path = ""
+        self.result_folder_path = ""
         #setting title
         root.title("undefined")
         #setting window size
@@ -45,23 +50,23 @@ class App:
         students_work_folder_label["text"] = "Student's work folder"
         students_work_folder_label.place(x=40,y=50,width=140,height=30)
 
-        students_work_folder_text=tk.Text(root)
+        self.students_work_folder_text=tk.Text(root)
         ft = tkFont.Font(family='Times',size=10)
-        students_work_folder_text["font"] = ft
-        students_work_folder_text["fg"] = "#333333"
-        students_work_folder_text.place(x=190,y=50,width=180,height=30)
+        self.students_work_folder_text["font"] = ft
+        self.students_work_folder_text["fg"] = "#333333"
+        self.students_work_folder_text.place(x=190,y=50,width=180,height=30)
 
-        teachers_folder_text=tk.Text(root)
+        self.teachers_folder_text=tk.Text(root)
         ft = tkFont.Font(family='Times',size=10)
-        teachers_folder_text["font"] = ft
-        teachers_folder_text["fg"] = "#333333"
-        teachers_folder_text.place(x=190,y=110,width=180,height=30)
+        self.teachers_folder_text["font"] = ft
+        self.teachers_folder_text["fg"] = "#333333"
+        self.teachers_folder_text.place(x=190,y=110,width=180,height=30)
 
-        result_folder_text=tk.Text(root)
+        self.result_folder_text=tk.Text(root)
         ft = tkFont.Font(family='Times',size=10)
-        result_folder_text["font"] = ft
-        result_folder_text["fg"] = "#333333"
-        result_folder_text.place(x=190,y=170,width=180,height=30)
+        self.result_folder_text["font"] = ft
+        self.result_folder_text["fg"] = "#333333"
+        self.result_folder_text.place(x=190,y=170,width=180,height=30)
 
         teachers_folder_label=tk.Label(root)
         ft = tkFont.Font(family='Times',size=10)
@@ -101,34 +106,41 @@ class App:
 
     def run_button_command(self):
         hw_path = "hw1"
-        RunTimeTestConfigurations.set_hw_path(hw_path)
-        RunTimeTestConfigurations.set_is_lecturer_mode(False)
 
-        json_configuration_file_path = f'./configuration/{hw_path}/tests_configurations.json'
+        # RunTimeTestConfigurations.set_hw_path(hw_path)
+        # RunTimeTestConfigurations.set_is_lecturer_mode(False)
+        #
+        # json_configuration_file_path = f'./configuration/{hw_path}/tests_configurations.json'
+        #
+        # gui_elements_images_path = f"configuration/{hw_path}/gui_elements_images"
+        # TestConfigurationParser.initialize(json_configuration_file_path, gui_elements_images_path)
+        #
+        # students_solution_folder_path = f'students_solution_execs/{hw_path}'
+        # results_report_path = 'results_report'
 
-        gui_elements_images_path = f"configuration/{hw_path}/gui_elements_images"
-        TestConfigurationParser.initialize(json_configuration_file_path, gui_elements_images_path)
-
-        students_solution_folder_path = f'students_solution_execs/{hw_path}'
-        results_report_path = 'results_report'
-        homework_exe = HomeWorkExecutioner(students_solution_folder_path,
-                                           results_report_path,
-                                           json_configuration_file_path)
+        homework_exe = HomeWorkExecutioner( self.students_work_folder_text.get("1.0", tk.END).replace("\n", ""),
+                                            self.result_folder_text.get("1.0", tk.END).replace("\n", ""),
+                                            self.teachers_folder_text.get("1.0", tk.END).replace("\n", "") + '/tests_configurations.json')
 
         homework_exe.run()
         print("run_button_command")
 
-
     def students_work_folder_button_command(self):
-        print("students_work_folder_button_command")
+        self.students_work_folder_path = filedialog.askdirectory()
+        self.students_work_folder_text.delete("1.0", "end")
+        self.students_work_folder_text.insert(tk.END, self.students_work_folder_path)
 
 
     def teachers_folder_button_command(self):
-        print("teachers_folder_button_command")
+        self.teachers_folder_path = filedialog.askdirectory()
+        self.teachers_folder_text.delete("1.0","end")
+        self.teachers_folder_text.insert(tk.END, self.teachers_folder_path)
 
 
     def result_folder_button_command(self):
-        print("result_folder_button_command")
+        self.result_folder_path = filedialog.askdirectory()
+        self.result_folder_text.delete("1.0","end")
+        self.result_folder_text.insert(tk.END, self.result_folder_path)
 
 if __name__ == "__main__":
     root = tk.Tk()

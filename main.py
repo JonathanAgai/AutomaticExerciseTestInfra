@@ -3,7 +3,7 @@ from RunTimeTestConfigurations import *
 
 
 if __name__ == '__main__':
-    hw_path = "hw2"
+    hw_path = "hw3"
     RunTimeTestConfigurations.set_hw_path(hw_path)
     RunTimeTestConfigurations.set_is_lecturer_mode(False)
 

@@ -4,12 +4,8 @@ import os
 
 
 class TemplateMatcher:
-    def __init__(self, source_image, crop_image, test_name="-1", student_id=-1):
-        self.student_id = student_id
-        self.source_image = source_image
-        self.crop_image = crop_image
+    def __init__(self, test_name="-1"):
         self.test_name = test_name
-        self.match_found = False
 
     def draw_rectangle_around_target(self, loc, image, w, h):
         # for pt in zip(*loc[::-1]):
@@ -20,17 +16,10 @@ class TemplateMatcher:
         for pt in zip(*loc[::-1]):
             cv2.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)
 
-    def save_result_image(self, image):
-        result_dir = f'template_results/{self.student_id}'
-        result_path = f'{result_dir}/{self.test_name}.png'
-        if not os.path.exists(result_dir):
-            os.makedirs(result_dir)
-        result_image = cv2.imwrite(result_path, image)
-
-    def template_matching(self):
-        image = cv2.imread(self.source_image)
+    def template_matching(self, source_image_cv, lecturer_img_path):
+        image = source_image_cv
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-        template = cv2.imread(self.crop_image, 0)
+        template = cv2.imread(lecturer_img_path, 0)
         w, h = template.shape[::-1]
 
         res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)
@@ -38,16 +27,9 @@ class TemplateMatcher:
 
         print(f"test name: {self.test_name}, res: {np.amax(res)}")
         if np.amax(res) >= threshold:
-            self.match_found = True
+            return True
 
-        loc = np.where(res >= threshold)
-
-        # self.draw_rectangle_around_target(loc, image, w, h)
-
-        # if not self.match_found:
-        #     self.save_result_image(template)
-
-        return self.match_found
+        return False
 
     @staticmethod
     def find_location(source_image, template_path):

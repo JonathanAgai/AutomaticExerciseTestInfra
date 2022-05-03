@@ -48,7 +48,7 @@ def parse_test(test_name, test_values):
     cropped_area_img_path = RunTimeTestConfigurations.get_solution_screenshot_imgs_path()
     hw_path = RunTimeTestConfigurations.get_hw_path()
     string_test_name = test_name.replace("_", " ")
-    expected_result = f"configuration/{hw_path}/lecturer_solution/{string_test_name}.png"
+    expected_result = f"configuration/{hw_path}/lecturer_solution/templates/{string_test_name}.png"
     test = Test(operations, expected_result, cropped_element_name, cropped_area_img_path, test_name)
     return test
 
@@ -88,9 +88,9 @@ def parse_operation_value(operation_value_str):
 
         use_input = True
         operation_value_number = int(values_str[2])
-    else:
-        print(f"Invalid Line value:{operation_value_str}, invalid number of arguments: {len(values_str)}")
-        return None
+    # else:
+    #     print(f"Invalid Line value:{operation_value_str}, invalid number of arguments: {len(values_str)}")
+    #     return None
 
     print(f"Parse {operation_value_str} into -> {element_name},{use_input},{operation_value_number}")
     return element_name, use_input, operation_value_number
@@ -104,7 +104,7 @@ def parse_generic_click_operation(gui_config, element_name, use_input, operation
     if use_input:
         x, y = gui_config.get_elements_input_xy(element_name, operation_value_number)
     else:
-        x, y = gui_config.get_elements_xy(element_name, operation_value_number)
+        x, y = gui_config.get_elements_xy(element_name)
 
     return x, y
 

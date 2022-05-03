@@ -25,5 +25,3 @@ class ReportGenerator:
         self.frames.append(df)
 
 
-# headers = ["student id", "feature1 score", "feature1 review", "final score"]
-

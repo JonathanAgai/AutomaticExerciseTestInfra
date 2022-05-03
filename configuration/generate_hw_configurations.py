@@ -23,7 +23,9 @@ def generate_hw_configuration_tree(hw_path:str):
     directories = [
         f"{hw_path}",
         f"{hw_path}/gui_elements_images",
-        f"{hw_path}/lecturer_solution"
+        f"{hw_path}/lecturer_solution",
+        f"{hw_path}/lecturer_solution/templates",
+        f"{hw_path}/lecturer_solution/application"
     ]
 
     for d in directories:

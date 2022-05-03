@@ -70,12 +70,7 @@ class GUIConfigurations:
         6)  if value exist generate location for value as well
         """
 
-        app_crop_area = [
-            self.gui_elements["screen_offset_x"],
-            self.gui_elements["screen_offset_y"],
-            self.gui_elements["screen_width"],
-            self.gui_elements["screen_height"]
-        ]
+        app_crop_area = self.get_app_crop_area()
         app_image = pyautogui.screenshot(region=app_crop_area)
         # convert into numpy in order to work with cv library
         app_image = np.array(app_image)
@@ -235,6 +230,15 @@ class GUIConfigurations:
 
     def get_crop_area(self, element_name):
         return self.gui_elements["elements"][element_name]["crop_area"]
+
+    def get_app_crop_area(self):
+        app_crop_area = [
+            self.gui_elements["screen_offset_x"],
+            self.gui_elements["screen_offset_y"],
+            self.gui_elements["screen_width"],
+            self.gui_elements["screen_height"]
+        ]
+        return app_crop_area
 
 
 if __name__ == "__main__":

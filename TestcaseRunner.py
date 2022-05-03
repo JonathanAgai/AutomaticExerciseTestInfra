@@ -24,7 +24,6 @@ class TestcaseRunner:
 
         gui_config = GUIConfigurations.get_instance()
         if not gui_config.find_gui_elements():
-            # TODO change with revamp to report
             for _ in range(len(self.features)):
                 self.features_scores.append('0/0')
                 self.features_reviews.append('score: 0/0, could not find gui elements')

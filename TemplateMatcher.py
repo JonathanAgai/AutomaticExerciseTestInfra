@@ -4,10 +4,52 @@ import os
 
 
 class TemplateMatcher:
+    # TODO documentation
+    """
+        write in one line class description here
+
+        write long description of class here
+
+        Attributes
+        ----------
+        test_name : write the parameter's type here
+            write parameter description here
+
+        Methods
+        -------
+        draw_rectangle_around_target(loc, image, w, h)
+            write function description here
+        template_matching(source_image_cv, lecturer_img_path)
+            write function description here
+        find_location(source_image, template_path)
+            write function description here
+        """
     def __init__(self, test_name="-1"):
+        # TODO documentation
+        """
+        __init__(...) write function description here
+        :param test_name: write parameter description here
+        :type test_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.test_name = test_name
 
     def draw_rectangle_around_target(self, loc, image, w, h):
+        # TODO documentation
+        """
+        draw_rectangle_around_target(...) write function description here
+        :param loc: write parameter description here
+        :type loc: write the parameter's type here
+        :param image: write parameter description here
+        :type image: write the parameter's type here
+        :param w: write parameter description here
+        :type w: write the parameter's type here
+        :param h: write parameter description here
+        :type h: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         # for pt in zip(*loc[::-1]):
         # is for the points which have values greater than threshold.
         # zip is a container of all such points
@@ -17,6 +59,16 @@ class TemplateMatcher:
             cv2.rectangle(image, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)
 
     def template_matching(self, source_image_cv, lecturer_img_path):
+        # TODO documentation
+        """
+        template_matching(...) write function description here
+        :param source_image_cv: write parameter description here
+        :type source_image_cv: write the parameter's type here
+        :param lecturer_img_path: write parameter description here
+        :type lecturer_img_path: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         image = source_image_cv
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         template = cv2.imread(lecturer_img_path, 0)
@@ -33,6 +85,16 @@ class TemplateMatcher:
 
     @staticmethod
     def find_location(source_image, template_path):
+        # TODO documentation
+        """
+        template_matching(...) write function description here
+        :param source_image: write parameter description here
+        :type source_image: write the parameter's type here
+        :param template_path: write parameter description here
+        :type template_path: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         image = source_image
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         template = cv2.imread(template_path, 0)

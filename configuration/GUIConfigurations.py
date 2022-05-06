@@ -4,6 +4,16 @@ from TemplateMatcher import *
 
 
 def get_box_union(box1: list, box2: list):
+    # TODO documentation
+    """
+    get_box_union(...) write function description here
+    :param box1: write parameter description here
+    :type box1: write the parameter's type here
+    :param box2: write parameter description here
+    :type box2: write the parameter's type here
+    :return: write return value and description here or write None if it doesn't have return value.
+    :rtype: write the type of the return parameter here
+    """
     x1_left, y1_top, w1, h1 = box1
     x1_right = x1_left + w1
     y1_down = y1_top + h1
@@ -26,6 +36,16 @@ def get_box_union(box1: list, box2: list):
 
 
 def get_element_input_location(element_location: list, input_dimension: dict):
+    # TODO documentation
+    """
+    get_element_input_location(...) write function description here
+    :param element_location: write parameter description here
+    :type element_location: write the parameter's type here
+    :param input_dimension: write parameter description here
+    :type input_dimension: write the parameter's type here
+    :return: write return value and description here or write None if it doesn't have return value.
+    :rtype: write the type of the return parameter here
+    """
     orientation = input_dimension["orientation"]
     width = input_dimension["width"]
     height = input_dimension["height"]
@@ -44,21 +64,96 @@ def get_element_input_location(element_location: list, input_dimension: dict):
 
 
 class GUIConfigurations:
+    # TODO documentation
+    """
+        write in one line class description here
+
+        write long description of class here
+
+        Attributes
+        ----------
+        images_dir_path : write the parameter's type here
+            write parameter description here
+        gui_elements : write the parameter's type here
+            write parameter description here
+
+        Methods
+        -------
+        initialize(gui_elements, images_dir_path)
+            write function description here
+        get_instance()
+            write function description here
+        find_gui_elements()
+            write function description here
+        get_element_location(element_name)
+            write function description here
+        get_element_input_location(element_name, input_index=None)
+            write function description here
+        get_elements_xy_scroll(element_name)
+            write function description here
+        get_location_xy_center(location)
+            write function description here
+        get_elements_xy_scroll_up(element_name)
+            write function description here
+        get_elements_xy_scroll_down(element_name)
+            write function description here
+        get_elements_xy(element_name)
+            write function description here
+        get_elements_input_xy(element_name, input_index=None)
+            write function description here
+        get_crop_area(element_name)
+            write function description here
+        get_app_crop_area()
+            write function description here
+        """
     _gui_config = None
 
     @staticmethod
     def initialize(gui_elements, images_dir_path):
+        # TODO documentation
+        """
+        initialize(...) write function description here
+        :param gui_elements: write parameter description here
+        :type gui_elements: write the parameter's type here
+        :param images_dir_path: write parameter description here
+        :type images_dir_path: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         GUIConfigurations._gui_config = GUIConfigurations(gui_elements, images_dir_path)
 
     @staticmethod
     def get_instance():
+        # TODO documentation
+        """
+        get_instance(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         return GUIConfigurations._gui_config
 
     def __init__(self, gui_elements, images_dir_path):
+        # TODO documentation
+        """
+        __init__(...) write function description here
+        :param gui_elements: write parameter description here
+        :type gui_elements: write the parameter's type here
+        :param images_dir_path: write parameter description here
+        :type images_dir_path: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.images_dir_path = images_dir_path
         self.gui_elements = gui_elements
 
     def find_gui_elements(self):
+        # TODO documentation
+        """
+        find_gui_elements(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
+
         """
         steps:
         1)  open app screen image
@@ -109,11 +204,29 @@ class GUIConfigurations:
         return True
 
     def get_element_location(self, element_name):
+        # TODO documentation
+        """
+        get_element_location(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         if element_name not in self.gui_elements["elements"]:
             return []
         return self.gui_elements["elements"][element_name]["location"]
 
     def get_element_input_location(self, element_name, input_index=None):
+        # TODO documentation
+        """
+        get_element_input_location(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :param input_index: write parameter description here
+        :type input_index: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         if element_name not in self.gui_elements["elements"]:
             print(f"Error Couldn't find {element_name}")
             return []
@@ -149,6 +262,15 @@ class GUIConfigurations:
         return []
 
     def get_elements_xy_scroll(self, element_name):
+        # TODO documentation
+        """
+        get_elements_xy_scroll(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
+
         """
         1) check that element exist
         2) check that element has vertical scroll input
@@ -175,12 +297,29 @@ class GUIConfigurations:
         return [e_x, e_y, e_w, e_h, vs_w, vs_h]
 
     def get_location_xy_center(self, location):
+        # TODO documentation
+        """
+        get_location_xy_center(...) write function description here
+        :param location: write parameter description here
+        :type location: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         x, y, w, h = location
         cx = int(x + w / 2)
         cy = int(y + h / 2)
         return [cx, cy]
 
     def get_elements_xy_scroll_up(self, element_name):
+        # TODO documentation
+        """
+        get_elements_xy_scroll_up(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
+
         """
         calculate center of up-arrow of the scrollbar
             breakdown: (assuming orientation right direction)
@@ -198,6 +337,15 @@ class GUIConfigurations:
         return self.get_location_xy_center(location)
 
     def get_elements_xy_scroll_down(self, element_name):
+        # TODO documentation
+        """
+        get_elements_xy_scroll_down(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
+
         """
         calculate center of up-arrow of the scrollbar
             breakdown: (assuming orientation right direction)
@@ -215,6 +363,14 @@ class GUIConfigurations:
         return self.get_location_xy_center(location)
 
     def get_elements_xy(self, element_name):
+        # TODO documentation
+        """
+        get_elements_xy(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         location = self.get_element_location(element_name)
         if len(location) == 0:
             return []
@@ -222,6 +378,16 @@ class GUIConfigurations:
         return self.get_location_xy_center(location)
 
     def get_elements_input_xy(self, element_name, input_index=None):
+        # TODO documentation
+        """
+        get_elements_input_xy(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :param input_index: write parameter description here
+        :type input_index: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         location = self.get_element_input_location(element_name, input_index)
         if len(location) == 0:
             return []
@@ -229,9 +395,23 @@ class GUIConfigurations:
         return self.get_location_xy_center(location)
 
     def get_crop_area(self, element_name):
+        # TODO documentation
+        """
+        get_crop_area(...) write function description here
+        :param element_name: write parameter description here
+        :type element_name: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         return self.gui_elements["elements"][element_name]["crop_area"]
 
     def get_app_crop_area(self):
+        # TODO documentation
+        """
+        get_app_crop_area(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         app_crop_area = [
             self.gui_elements["screen_offset_x"],
             self.gui_elements["screen_offset_y"],

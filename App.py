@@ -7,6 +7,14 @@ from RunTimeTestConfigurations import *
 
 class App:
     def __init__(self, root):
+        # TODO documentation
+        """
+        __init__(...) write function description here
+        :param root: write parameter description here
+        :type root: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         #init paths
         self.teachers_folder_path = ""
         self.students_work_folder_path = ""
@@ -105,6 +113,12 @@ class App:
         result_folder_button["command"] = self.result_folder_button_command
 
     def run_button_command(self):
+        # TODO documentation
+        """
+        run_button_command(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         hw_path = "hw1"
 
         # RunTimeTestConfigurations.set_hw_path(hw_path)
@@ -126,18 +140,36 @@ class App:
         print("run_button_command")
 
     def students_work_folder_button_command(self):
+        # TODO documentation
+        """
+        students_work_folder_button_command(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.students_work_folder_path = filedialog.askdirectory()
         self.students_work_folder_text.delete("1.0", "end")
         self.students_work_folder_text.insert(tk.END, self.students_work_folder_path)
 
 
     def teachers_folder_button_command(self):
+        # TODO documentation
+        """
+        teachers_folder_button_command(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.teachers_folder_path = filedialog.askdirectory()
         self.teachers_folder_text.delete("1.0","end")
         self.teachers_folder_text.insert(tk.END, self.teachers_folder_path)
 
 
     def result_folder_button_command(self):
+        # TODO documentation
+        """
+        result_folder_button_command(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.result_folder_path = filedialog.askdirectory()
         self.result_folder_text.delete("1.0","end")
         self.result_folder_text.insert(tk.END, self.result_folder_path)

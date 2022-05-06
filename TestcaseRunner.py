@@ -3,8 +3,45 @@ from TestConfigurationParser import *
 
 
 class TestcaseRunner:
-    def __init__(self, test_configurations_path=None):
+    # TODO documentation
+    """
+        write in one line class description here
 
+        write long description of class here
+
+        Attributes
+        ----------
+        features : write the parameter's type here
+            write parameter description here
+        final_score : write the parameter's type here
+            write parameter description here
+        features_scores : write the parameter's type here
+            write parameter description here
+        features_reviews : write the parameter's type here
+            write parameter description here
+        test_configurations_path : write the parameter's type here
+            write parameter description here
+
+        Methods
+        -------
+        set_configurations(test_configurations_path)
+            write function description here
+        run(student_id) -> StudentData
+            write function description here
+        calculate_final_score()
+            write function description here
+        print()
+            write function description here
+        """
+    def __init__(self, test_configurations_path=None):
+        # TODO documentation
+        """
+        __init__(...) write function description here
+        :param test_configurations_path: write parameter description here
+        :type test_configurations_path: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.features = None
         self.final_score = ''
         self.features_scores = []
@@ -15,9 +52,25 @@ class TestcaseRunner:
         #     self.set_configurations(test_configurations_path)
 
     def set_configurations(self, test_configurations_path):
+        # TODO documentation
+        """
+        set_configurations(...) write function description here
+        :param test_configurations_path: write parameter description here
+        :type test_configurations_path: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.features = TestConfigurationParser.extract_features(test_configurations_path)
 
     def run(self, student_id) -> StudentData:
+        # TODO documentation
+        """
+        run(...) write function description here
+        :param student_id: write parameter description here
+        :type student_id: write the parameter's type here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         self.features_scores.clear()
         self.features_reviews.clear()
         self.final_score = "N/A"
@@ -44,6 +97,12 @@ class TestcaseRunner:
         return StudentData(student_id, self.features_scores, self.features_reviews, self.final_score)
 
     def calculate_final_score(self):
+        # TODO documentation
+        """
+        calculate_final_score(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         x, y = 0, 0
         flat_list = []
         for score in self.features_scores:
@@ -59,6 +118,12 @@ class TestcaseRunner:
         self.final_score = final_score
 
     def print(self):
+        # TODO documentation
+        """
+        print(...) write function description here
+        :return: write return value and description here or write None if it doesn't have return value.
+        :rtype: write the type of the return parameter here
+        """
         for feature in self.features:
             feature.print()
 

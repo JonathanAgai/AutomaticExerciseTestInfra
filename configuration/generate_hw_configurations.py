@@ -14,12 +14,28 @@ LECTURER_SOLUTION_NAME = "lecturer_solution/lecturer_solution.py"
 
 
 def load_data(hw_path: str):
+    # TODO documentation
+    """
+    load_data(...) write function description here
+    :param hw_path: write parameter description here
+    :type hw_path: write the parameter's type here
+    :return: write return value and description here or write None if it doesn't have return value.
+    :rtype: write the type of the return parameter here
+    """
     path = f"{hw_path}/{GUI_ELEMENT_LOCATION_NAME}"
     with open(path, "r") as f:
         return json.load(f)
 
 
 def generate_hw_configuration_tree(hw_path:str):
+    # TODO documentation
+    """
+    generate_hw_configuration_tree(...) write function description here
+    :param hw_path: write parameter description here
+    :type hw_path: write the parameter's type here
+    :return: write return value and description here or write None if it doesn't have return value.
+    :rtype: write the type of the return parameter here
+    """
     directories = [
         f"{hw_path}",
         f"{hw_path}/gui_elements_images",
@@ -34,6 +50,14 @@ def generate_hw_configuration_tree(hw_path:str):
 
 
 def create_elements_images(hw_path: str):
+    # TODO documentation
+    """
+    create_elements_images(...) write function description here
+    :param hw_path: write parameter description here
+    :type hw_path: write the parameter's type here
+    :return: write return value and description here or write None if it doesn't have return value.
+    :rtype: write the type of the return parameter here
+    """
     data = load_data(hw_path)
     for e_name, e_crop_area in data.items():
         string_e_name = e_name.replace("_", " ")
@@ -43,6 +67,14 @@ def create_elements_images(hw_path: str):
 
 
 def execute_lecturer_exec(hw_path: str):
+    # TODO documentation
+    """
+    execute_lecturer_exec(...) write function description here
+    :param hw_path: write parameter description here
+    :type hw_path: write the parameter's type here
+    :return: write return value and description here or write None if it doesn't have return value.
+    :rtype: write the type of the return parameter here
+    """
     RunTimeTestConfigurations.set_is_lecturer_mode(True)
     RunTimeTestConfigurations.set_hw_path(hw_path)
     test_config_path = f"{hw_path}/tests_configurations.json"

@@ -106,7 +106,7 @@ class Test:
         if RunTimeTestConfigurations.get_is_lecturer_mode():
             cropped_image_path = f"{self.crop_area_img_path}/application/{string_test_name}.png"
         else:
-            cropped_image_base_path = f"{self.crop_area_img_path}/{student_id}"
+            cropped_image_base_path = f"./{self.crop_area_img_path}/{student_id}"
             if not os.path.exists(cropped_image_base_path):
                 os.mkdir(cropped_image_base_path)
             cropped_image_path = f"{cropped_image_base_path}/{string_test_name}.png"

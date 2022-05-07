@@ -84,7 +84,7 @@ def execute_lecturer_exec(hw_path: str):
     exec_path = f"{hw_path}/{LECTURER_SOLUTION_NAME}"
     cmd = ['python.exe', exec_path]
     p = Popen(cmd)
-    sleep(2)
+    sleep(5)
 
     create_elements_images(hw_path)
 

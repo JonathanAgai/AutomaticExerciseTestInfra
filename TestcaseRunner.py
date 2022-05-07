@@ -1,5 +1,6 @@
 from StudentData import StudentData
 from TestConfigurationParser import *
+import time
 
 
 class TestcaseRunner:
@@ -75,11 +76,15 @@ class TestcaseRunner:
         self.features_reviews.clear()
         self.final_score = "N/A"
 
-        gui_config = GUIConfigurations.get_instance()
-        if not gui_config.find_gui_elements():
-            for _ in range(len(self.features)):
+        if not self.try_to_find_gui_elements(1, 10):
+
+            if len(self.features) == 0:
                 self.features_scores.append('0/0')
-                self.features_reviews.append('score: 0/0, could not find gui elements')
+                self.features_reviews.append('score: 0/0, could not find tests features and gui elements')
+            else:
+                for _ in range(len(self.features)):
+                    self.features_scores.append('0/0')
+                    self.features_reviews.append('score: 0/0, could not find gui elements')
             self.final_score = '0.0/100.0'
 
             return StudentData(student_id, self.features_scores, self.features_reviews, self.final_score)
@@ -116,6 +121,19 @@ class TestcaseRunner:
         y = round(y, 2)
         final_score = str(x) + "/" + str(y)
         self.final_score = final_score
+
+    def try_to_find_gui_elements(self, sleep_interval_sec, num_retries):
+        gui_config = GUIConfigurations.get_instance()
+        for i in range(num_retries):
+            found_gui_elements = gui_config.find_gui_elements()
+            if found_gui_elements is True:
+                print(f"Found Gui elements on {i} iteration")
+                return True
+            print(f"Failed to find Gui elements for {i} iteration, going to sleep for: {sleep_interval_sec}")
+            time.sleep(sleep_interval_sec)
+
+        print(f"Failed to find Gui elements after {num_retries} iteration")
+        return False
 
     def print(self):
         # TODO documentation

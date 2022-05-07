@@ -43,7 +43,7 @@ class RunTimeTestConfigurations:
         if RunTimeTestConfigurations._lecturer_mode:
             return f"{hw_path}/lecturer_solution"
         else:
-            return f"student_solution/{hw_path}"
+            return f"students_solution/{hw_path}"
 
     @staticmethod
     def set_hw_path(hw_path):

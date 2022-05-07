@@ -61,13 +61,10 @@ class TemplateMatcher:
     def template_matching(self, source_image_cv, lecturer_img_path):
         # TODO documentation
         """
-        template_matching(...) write function description here
-        :param source_image_cv: write parameter description here
-        :type source_image_cv: write the parameter's type here
-        :param lecturer_img_path: write parameter description here
-        :type lecturer_img_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        template_matching(...) compare between given cv img and img inside file system
+        :param source_image_cv: open cv img to be compered with
+        :param lecturer_img_path: path(string) to lecturer(correct) img path
+        :return: true if match found otherwise false
         """
         image = source_image_cv
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)

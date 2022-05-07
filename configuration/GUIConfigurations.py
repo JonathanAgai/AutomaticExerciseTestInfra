@@ -176,7 +176,11 @@ class GUIConfigurations:
             element_img_name = e_val["image_name"]
             element_img_path = f"{self.images_dir_path}/{element_img_name}"
 
-            element_location = TemplateMatcher.find_location(app_image, element_img_path)
+            try:
+                element_location = TemplateMatcher.find_location(app_image, element_img_path)
+            except Exception as e:
+                print(f"Faild to find element image path: {element_img_path}")
+                return False
 
             if len(element_location) == 0:
                 print(f"*******Failed to find element: {e_key}*******")

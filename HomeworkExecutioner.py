@@ -55,7 +55,7 @@ class HomeWorkExecutioner:
         self.results_report_path = results_report_path
         self.test_case_runner = TestcaseRunner(test_configurations_path)
 
-        self.students_id = self.extract_student_ids() # ['308418367']  # add homeworkexe extract students ids from students solution dir
+        self.students_id = self.extract_student_ids()
         self.report_headers = TestConfigurationParser.extract_features_headers(test_configurations_path)
 
     def extract_student_ids(self):
@@ -87,7 +87,7 @@ class HomeWorkExecutioner:
 
             cmd = ['python.exe', student_exe_path]
             p = Popen(cmd)
-            time.sleep(5)
+            time.sleep(1)
 
             student_data = self.test_case_runner.run(student_id)
             students_data.append(student_data.generate_data())

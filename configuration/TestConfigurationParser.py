@@ -343,12 +343,12 @@ class TestConfigurationParser:
         :return: write return value and description here or write None if it doesn't have return value.
         :rtype: write the type of the return parameter here
         """
-        data = TestConfigurationParser.get_config_data(test_configuration_path)
+        data = TestConfigurationParser.get_config_data(test_configuration_path, True)
         gui_elements = data["gui_elements"]
         GUIConfigurations.initialize(gui_elements, images_dir_path)
 
     @staticmethod
-    def get_config_data(test_configuration_path):
+    def get_config_data(test_configuration_path, init=False):
         # TODO documentation
         """
         get_config_data(...) write function description here
@@ -357,7 +357,7 @@ class TestConfigurationParser:
         :return: write return value and description here or write None if it doesn't have return value.
         :rtype: write the type of the return parameter here
         """
-        if TestConfigurationParser._data is not None:
+        if TestConfigurationParser._data is not None and not init:
             return TestConfigurationParser._data
 
         with open(test_configuration_path, "r") as f:

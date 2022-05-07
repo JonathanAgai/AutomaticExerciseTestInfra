@@ -5,7 +5,6 @@ hand over all test case runner to report Generator
 """
 
 import os
-import time
 from subprocess import Popen
 from ReportGenerator import *
 from TestcaseRunner import *

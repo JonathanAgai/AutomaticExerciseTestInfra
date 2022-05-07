@@ -1,8 +1,6 @@
 import os.path
 import time
-
 import numpy
-
 from RunTimeTestConfigurations import *
 from GUIConfigurations import *
 

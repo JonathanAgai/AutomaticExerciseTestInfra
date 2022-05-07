@@ -1,4 +1,3 @@
-import numpy as np
 import pyautogui
 from TemplateMatcher import *
 
@@ -427,6 +426,3 @@ class GUIConfigurations:
 
 if __name__ == "__main__":
     pass
-    # path = "json_fml.json"
-    # gui_config = GUIConfigurations(path)
-    # gui_config.find_gui_elements()

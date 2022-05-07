@@ -1,13 +1,10 @@
-import json
 import os.path
 from subprocess import Popen
 from time import sleep
-import pyautogui
 import sys
 from TestConfigurationParser import *
 
 pyautogui.FAILSAFE = False
-
 
 GUI_ELEMENT_LOCATION_NAME = "gui_elements_locations.json"
 LECTURER_SOLUTION_NAME = "lecturer_solution/lecturer_solution.py"

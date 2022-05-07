@@ -1,6 +1,5 @@
 import tkinter as tk
 import tkinter.font as tkFont
-from tkinter import filedialog
 from HomeworkExecutioner import *
 from RunTimeTestConfigurations import *
 import os
@@ -59,7 +58,7 @@ class App:
     def generate_hw_solution_tree(self, hw_path: str):
         # TODO documentation
         """
-        generate_hw_configuration_tree(...) write function description here
+        generate_hw_solution_tree(...) write function description here
         :param hw_path: write parameter description here
         :type hw_path: write the parameter's type here
         :return: write return value and description here or write None if it doesn't have return value.

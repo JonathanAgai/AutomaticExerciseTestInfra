@@ -18,7 +18,6 @@ def parse_features_headers(data):
     json_features = data["features"]
     for feature_name, feature_tests in json_features.items():
         feature_name = feature_name.replace("_", " ")
-        # features_headers.append(f'{feature_name} score')
         features_headers.append(f'{feature_name} review')
 
     features_headers.append('final score')
@@ -140,9 +139,6 @@ def parse_operation_value(operation_value_str):
 
         use_input = True
         operation_value_number = int(values_str[2])
-    # else:
-    #     print(f"Invalid Line value:{operation_value_str}, invalid number of arguments: {len(values_str)}")
-    #     return None
 
     print(f"Parse {operation_value_str} into -> {element_name},{use_input},{operation_value_number}")
     return element_name, use_input, operation_value_number

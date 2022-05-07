@@ -1,6 +1,5 @@
 import cv2
 import numpy as np
-import os
 
 
 class TemplateMatcher:
@@ -96,11 +95,6 @@ class TemplateMatcher:
         image_gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         template = cv2.imread(template_path, 0)
         w, h = template.shape[::-1]
-
-        # cv2.imshow("app", image_gray)
-        # cv2.waitKey(0)
-        # cv2.imshow("template", template)
-        # cv2.waitKey(0)
 
         res = cv2.matchTemplate(image_gray, template, cv2.TM_CCOEFF_NORMED)
         threshold = 0.985

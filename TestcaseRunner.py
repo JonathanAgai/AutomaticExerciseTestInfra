@@ -49,9 +49,6 @@ class TestcaseRunner:
         self.features_reviews = []
         self.test_configurations_path = test_configurations_path
 
-        # if test_configurations_path is not None:
-        #     self.set_configurations(test_configurations_path)
-
     def set_configurations(self, test_configurations_path):
         # TODO documentation
         """

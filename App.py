@@ -13,15 +13,6 @@ def get_possible_homeworks():
 
 class App:
     def __init__(self, root):
-        # TODO documentation
-        """
-        __init__(...) write function description here
-        :param root: write parameter description here
-        :type root: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
-
         root.title("Gui Automation Testing Tool")
         # setting window size
         width = 470

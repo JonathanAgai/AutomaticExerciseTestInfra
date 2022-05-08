@@ -163,21 +163,9 @@ class Test:
             self.review_str = f'{self.test_name}: failed'
 
     def print(self):
-        # TODO documentation
-        """
-        print(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         print(f"expected_image_path: {self.lecturer_img_path}, cropped_image: {self.crop_area}")
         for operation in self.operations:
             operation.print()
 
     def get_review(self):
-        # TODO documentation
-        """
-        get_review(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         return self.review_str

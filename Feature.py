@@ -83,30 +83,12 @@ class Feature:
         self.calculate_score()
 
     def get_feature_review(self):
-        # TODO documentation
-        """
-        get_feature_review(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         return self.feature_reviews
 
     def get_feature_score(self):
-        # TODO documentation
-        """
-        get_feature_score(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         return self.feature_score
 
     def print(self):
-        # TODO documentation
-        """
-        print(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         print(f"score percent = {self.score_percent}")
         for test in self.tests:
             test.print()

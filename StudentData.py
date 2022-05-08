@@ -74,12 +74,6 @@ class StudentData:
         return data
 
     def print(self):
-        # TODO documentation
-        """
-        print(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         print(f"student_id: {self.student_id},")
         for score, feature_review in zip(self.features_scores, self.features_reviews):
             print(f"feature_score: {score}, feature_review: {feature_review}")

@@ -133,12 +133,6 @@ class TestcaseRunner:
         return False
 
     def print(self):
-        # TODO documentation
-        """
-        print(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
         for feature in self.features:
             feature.print()
 

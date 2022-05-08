@@ -6,6 +6,11 @@ import os
 
 
 def get_possible_homeworks():
+    """
+    get_possible_homeworks(...) extract existing homeworks options dirs
+    :return: homeworks options
+    :rtype: tuple
+    """
     config_files = os.listdir("configuration")
     homework_config = [cdir for cdir in config_files if cdir.startswith('hw')]
     return tuple(homework_config)
@@ -47,14 +52,7 @@ class App:
         run_button["command"] = self.run_button_command
 
     def generate_hw_solution_tree(self, hw_path: str):
-        # TODO documentation
-        """
-        generate_hw_solution_tree(...) write function description here
-        :param hw_path: write parameter description here
-        :type hw_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
+
         directories = [
             f"students_solution",
             f"students_solution/{hw_path}"
@@ -66,11 +64,9 @@ class App:
 
 
     def run_button_command(self):
-        # TODO documentation
         """
-        run_button_command(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        run_button_command(...) Run the program according to the selection of the desired exercise
+        :return: None
         """
         hw_path = self.homework_opts.get()
         self.generate_hw_solution_tree(hw_path)

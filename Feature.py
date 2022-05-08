@@ -1,56 +1,33 @@
 class Feature:
-    # TODO documentation
     """
-        write in one line class description here
+    A feature that contains tests, reviews and a scores
 
-        write long description of class here
+    Attributes
+    ----------
+    tests
+    score_percent
+    feature_reviews
+    feature_score
 
-        Attributes
-        ----------
-        tests : write the parameter's type here
-            write parameter description here
-        score_percent : write the parameter's type here
-            write parameter description here
-        feature_reviews : write the parameter's type here
-            write parameter description here
-        feature_score : write the parameter's type here
-            write parameter description here
-
-        Methods
-        -------
-        calculate_score()
-            write function description here
-        run_tests(student_id)
-            write function description here
-        get_feature_review()
-            write function description here
-        get_feature_score()
-            write function description here
-        print()
-            write function description here
-        """
+    Methods
+    -------
+    calculate_score()
+    run_tests(student_id)
+    get_feature_review()
+    get_feature_score()
+    print()
+    """
     def __init__(self, tests, score_percent):
-        # TODO documentation
-        """
-        __init__(...) write function description here
-        :param tests: write parameter description here
-        :type tests: write the parameter's type here
-        :param score_percent: write parameter description here
-        :type score_percent: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
+
         self.tests = tests
         self.score_percent = score_percent
         self.feature_reviews = []
         self.feature_score = -1
 
     def calculate_score(self):
-        # TODO documentation
         """
-        calculate_score(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        calculate_score(...) Calculation of the score according to the number of tests passed successfully
+        :return: None
         """
         success_tests = 0
         num_tests = len(self.tests)
@@ -66,13 +43,11 @@ class Feature:
         self.feature_score = f"{feature_score} / {feature_total_score}"
 
     def run_tests(self, student_id):
-        # TODO documentation
         """
-        run_tests(...) write function description here
-        :param student_id: write parameter description here
-        :type student_id: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        run_tests(...) Running tests for each feature according to the student's ID and calculating score
+        :param student_id:
+        :type student_id: string
+        :return: None
         """
         self.feature_score = "-1"
         self.feature_reviews.clear()

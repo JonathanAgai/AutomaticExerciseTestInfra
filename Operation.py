@@ -3,22 +3,17 @@ import pyautogui
 
 
 class Operation(abc.ABC):
-    # TODO documentation
     """
-        write in one line class description here
+    A component that contains various operations for performing operations on the GUI
 
-        write long description of class here
+    Attributes
+    ----------
 
-        Attributes
-        ----------
-
-        Methods
-        -------
-        execute()
-            write function description here
-        print(student_id)
-            write function description here
-        """
+    Methods
+    -------
+    execute()
+    print(student_id)
+    """
     def execute(self):
         raise NotImplementedError
 

@@ -5,13 +5,12 @@ from Feature import *
 
 
 def parse_features_headers(data):
-    # TODO documentation
     """
-    parse_features_headers(...) write function description here
-    :param data: write parameter description here
-    :type data: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    parse_features_headers(...) parse feature's names, feature's tests and create list of headers
+    :param data: tests configuration
+    :type data: json file
+    :return: headers
+    :rtype: list of strings
     """
     features_headers = ['student ids']
 
@@ -25,13 +24,12 @@ def parse_features_headers(data):
 
 
 def parse_features(data):
-    # TODO documentation
     """
-    parse_features(...) write function description here
-    :param data: write parameter description here
-    :type data: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    parse_features(...) parse and initialize features
+    :param data: tests configuration
+    :type data: json file
+    :return: features
+    :rtype: list of Class Feature
     """
     json_features = data["features"]
     num_features = len(json_features.keys())
@@ -57,15 +55,14 @@ def parse_features(data):
 
 
 def parse_test(test_name, test_values):
-    # TODO documentation
     """
-    parse_test(...) write function description here
-    :param test_name: write parameter description here
-    :type test_name: write the parameter's type here
-    :param test_values: write parameter description here
-    :type test_values: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    parse_test(...) parse and initialize test
+    :param test_name: test name
+    :type test_name: string
+    :param test_values: operations, expected result
+    :type test_values: string
+    :return: test
+    :rtype: Class test
     """
     operations = extract_test_configuration_operations(test_values["operations"])
     result = test_values["result"]
@@ -79,15 +76,14 @@ def parse_test(test_name, test_values):
 
 
 def extract_xy_from_operation(element_name_operation, gui_config):
-    # TODO documentation
     """
-    extract_xy_from_operation(...) write function description here
-    :param element_name_operation: write parameter description here
-    :type element_name_operation: write the parameter's type here
-    :param gui_config: write parameter description here
-    :type gui_config: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    extract_xy_from_operation(...) extract x,y of an operation for example click(x,y)
+    :param element_name_operation: operation name
+    :type element_name_operation: string
+    :param gui_config: Gui configuration - for finding the positions of the elements
+    :type gui_config: Class GUIConfiguration
+    :return: x,y values of the operation
+    :rtype: ints
     """
     element_name = element_name_operation.split("-input")[0]
     if "-input" in element_name_operation:
@@ -98,13 +94,12 @@ def extract_xy_from_operation(element_name_operation, gui_config):
 
 
 def extract_operation_value(element_name_operation):
-    # TODO documentation
     """
-    extract_operation_value(...) write function description here
-    :param element_name_operation: write parameter description here
-    :type element_name_operation: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    extract_operation_value(...) extract operation input for example a number of an entry
+    :param element_name_operation: operation name
+    :type element_name_operation: string
+    :return: value of the input
+    :rtype: int
     """
     values_str = element_name_operation.split("-")[0]
     if len(values_str) == 3:
@@ -114,13 +109,14 @@ def extract_operation_value(element_name_operation):
 
 
 def parse_operation_value(operation_value_str):
-    # TODO documentation
     """
-    parse_operation_value(...) write function description here
-    :param operation_value_str: write parameter description here
-    :type operation_value_str: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    parse_operation_value(...) parse operation value
+    :param operation_value_str: operation value for example:
+        "last_name - input" length is 2 that means input for a textbox
+        "countries_list - input - 9" length is 3 that means number of entry
+    :type operation_value_str: string
+    :return: element name, and flag which determine how to use the input value
+    :rtype: list [string,bool,string]
     """
     values_str = operation_value_str.split("-")
     element_name = values_str[0]
@@ -145,20 +141,7 @@ def parse_operation_value(operation_value_str):
 
 
 def parse_generic_click_operation(gui_config, element_name, use_input, operation_value_number):
-    # TODO documentation
-    """
-    parse_generic_click_operation(...) write function description here
-    :param gui_config: write parameter description here
-    :type gui_config: write the parameter's type here
-    :param element_name: write parameter description here
-    :type element_name: write the parameter's type here
-    :param use_input: write parameter description here
-    :type use_input: write the parameter's type here
-    :param operation_value_number: write parameter description here
-    :type operation_value_number: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
-    """
+
     if operation_value_number is not None and use_input is False:
         print(f"Invalid Click operation trying to work on operation_value={operation_value_number}, use_input={use_input}")
         return None
@@ -172,56 +155,19 @@ def parse_generic_click_operation(gui_config, element_name, use_input, operation
 
 
 def parse_click_operation(gui_config, element_name, use_input, operation_value_number):
-    # TODO documentation
-    """
-    parse_click_operation(...) write function description here
-    :param gui_config: write parameter description here
-    :type gui_config: write the parameter's type here
-    :param element_name: write parameter description here
-    :type element_name: write the parameter's type here
-    :param use_input: write parameter description here
-    :type use_input: write the parameter's type here
-    :param operation_value_number: write parameter description here
-    :type operation_value_number: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
-    """
+
     x, y = parse_generic_click_operation(gui_config, element_name, use_input, operation_value_number)
     return Click(x, y)
 
 
 def parse_double_click_operation(gui_config, element_name, use_input, operation_value_number):
-    # TODO documentation
-    """
-    parse_double_click_operation(...) write function description here
-    :param gui_config: write parameter description here
-    :type gui_config: write the parameter's type here
-    :param element_name: write parameter description here
-    :type element_name: write the parameter's type here
-    :param use_input: write parameter description here
-    :type use_input: write the parameter's type here
-    :param operation_value_number: write parameter description here
-    :type operation_value_number: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
-    """
+
     x, y = parse_generic_click_operation(gui_config, element_name, use_input, operation_value_number)
     return DoubleClick(x, y)
 
 
 def parse_scroll_up_operation(gui_config, element_name, operation_value_number):
-    # TODO documentation
-    """
-    parse_scroll_up_operation(...) write function description here
-    :param gui_config: write parameter description here
-    :type gui_config: write the parameter's type here
-    :param element_name: write parameter description here
-    :type element_name: write the parameter's type here
-    :param operation_value_number: write parameter description here
-    :type operation_value_number: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
-    """
+
     if operation_value_number is None:
         return None
     x, y = gui_config.get_elements_xy_scroll_up(element_name)
@@ -230,18 +176,7 @@ def parse_scroll_up_operation(gui_config, element_name, operation_value_number):
 
 
 def parse_scroll_down_operation(gui_config, element_name, operation_value_number):
-    # TODO documentation
-    """
-    parse_scroll_down_operation(...) write function description here
-    :param gui_config: write parameter description here
-    :type gui_config: write the parameter's type here
-    :param element_name: write parameter description here
-    :type element_name: write the parameter's type here
-    :param operation_value_number: write parameter description here
-    :type operation_value_number: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
-    """
+
     if operation_value_number is None:
         return None
     x, y = gui_config.get_elements_xy_scroll_down(element_name)
@@ -250,13 +185,12 @@ def parse_scroll_down_operation(gui_config, element_name, operation_value_number
 
 
 def extract_test_configuration_operations(test_operations):
-    # TODO documentation
     """
-    extract_test_configuration_operations(...) write function description here
-    :param test_operations: write parameter description here
-    :type test_operations: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    extract_test_configuration_operations(...) extract operations for a test
+    :param test_operations: test operations
+    :type test_operations: list
+    :return: operations
+    :rtype: list of Class operation
     """
     gui_config = GUIConfigurations.get_instance()
 
@@ -296,11 +230,9 @@ def extract_test_configuration_operations(test_operations):
 
 
 class TestConfigurationParser:
-    # TODO documentation
     """
-        write in one line class description here
-
-        write long description of class here
+        This component is responsible for Decoding/text analysis of the information
+         then extract and initialize the features,tests,operations required to perform the tests
 
         Attributes
         ----------
@@ -329,15 +261,13 @@ class TestConfigurationParser:
 
     @staticmethod
     def initialize(test_configuration_path, images_dir_path):
-        # TODO documentation
         """
-        initialize(...) write function description here
-        :param test_configuration_path: write parameter description here
-        :type test_configuration_path: write the parameter's type here
-        :param images_dir_path: write parameter description here
-        :type images_dir_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        initialize(...) initialize Gui configurations - for finding the positions of the elements
+        :param test_configuration_path: path to test configuration
+        :type test_configuration_path: json file
+        :param images_dir_path: path for gui elements images
+        :type images_dir_path: string
+        :return: None
         """
         data = TestConfigurationParser.get_config_data(test_configuration_path, True)
         gui_elements = data["gui_elements"]
@@ -345,13 +275,12 @@ class TestConfigurationParser:
 
     @staticmethod
     def get_config_data(test_configuration_path, init=False):
-        # TODO documentation
         """
-        get_config_data(...) write function description here
-        :param test_configuration_path: write parameter description here
-        :type test_configuration_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        get_config_data(...) load json file that contains configurations
+        :param test_configuration_path: path to the file
+        :type test_configuration_path: json file
+        :return: configuration data
+        :rtype: json
         """
         if TestConfigurationParser._data is not None and not init:
             return TestConfigurationParser._data
@@ -363,52 +292,36 @@ class TestConfigurationParser:
 
     @staticmethod
     def extract_features_headers(test_configuration_path):
-        # TODO documentation
         """
-        extract_features_headers(...) write function description here
-        :param test_configuration_path: write parameter description here
-        :type test_configuration_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        extract_features_headers(...) extract features headers
+        :param test_configuration_path: tests configuration
+        :type test_configuration_path: json file
+        :return: headers
+        :rtype: list of strings
         """
         data = TestConfigurationParser.get_config_data(test_configuration_path)
         return parse_features_headers(data)
 
     @staticmethod
     def extract_features(test_configuration_path):
-        # TODO documentation
         """
-        extract_features(...) write function description here
-        :param test_configuration_path: write parameter description here
-        :type test_configuration_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
-        data = TestConfigurationParser.get_config_data(test_configuration_path)
-        return parse_features(data)
-
-    @staticmethod
-    def extract_features(test_configuration_path):
-        # TODO documentation
-        """
-        extract_features(...) write function description here
-        :param test_configuration_path: write parameter description here
-        :type test_configuration_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        extract_features(...) extract features
+        :param test_configuration_path: tests configuration
+        :type test_configuration_path: json file
+        :return: features
+        :rtype: Class feature
         """
         data = TestConfigurationParser.get_config_data(test_configuration_path)
         return parse_features(data)
 
     @staticmethod
     def extract_gui_elements(test_configuration_path):
-        # TODO documentation
         """
-        extract_gui_elements(...) write function description here
-        :param test_configuration_path: write parameter description here
-        :type test_configuration_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        extract_gui_elements(...) extract Gui elements
+        :param test_configuration_path: tests configuration
+        :type test_configuration_path: json file
+        :return: gui elements
+        :rtype: dict
         """
         data = TestConfigurationParser.get_config_data(test_configuration_path)
         return data["gui_elements"]

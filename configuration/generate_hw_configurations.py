@@ -11,13 +11,11 @@ LECTURER_SOLUTION_NAME = "lecturer_solution/lecturer_solution.py"
 
 
 def load_data(hw_path: str):
-    # TODO documentation
     """
-    load_data(...) write function description here
-    :param hw_path: write parameter description here
-    :type hw_path: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    load_data(...) load elements location json file
+    :param hw_path: homework path
+    :type hw_path: string
+    :return: None
     """
     path = f"{hw_path}/{GUI_ELEMENT_LOCATION_NAME}"
     with open(path, "r") as f:
@@ -25,14 +23,6 @@ def load_data(hw_path: str):
 
 
 def generate_hw_configuration_tree(hw_path:str):
-    # TODO documentation
-    """
-    generate_hw_configuration_tree(...) write function description here
-    :param hw_path: write parameter description here
-    :type hw_path: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
-    """
     directories = [
         f"{hw_path}",
         f"{hw_path}/gui_elements_images",
@@ -47,13 +37,11 @@ def generate_hw_configuration_tree(hw_path:str):
 
 
 def create_elements_images(hw_path: str):
-    # TODO documentation
     """
-    create_elements_images(...) write function description here
-    :param hw_path: write parameter description here
-    :type hw_path: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    create_elements_images(...) screen shot Gui elements based on location from json file and save images
+    :param hw_path: homework path
+    :type hw_path: string
+    :return: None
     """
     data = load_data(hw_path)
     for e_name, e_crop_area in data.items():
@@ -64,13 +52,11 @@ def create_elements_images(hw_path: str):
 
 
 def execute_lecturer_exec(hw_path: str):
-    # TODO documentation
     """
-    execute_lecturer_exec(...) write function description here
-    :param hw_path: write parameter description here
-    :type hw_path: write the parameter's type here
-    :return: write return value and description here or write None if it doesn't have return value.
-    :rtype: write the type of the return parameter here
+    execute_lecturer_exec(...) Run the lecturer's solution and create images of the GUI elements
+    :param hw_path: homework path
+    :type hw_path: string
+    :return: None
     """
     RunTimeTestConfigurations.set_is_lecturer_mode(True)
     RunTimeTestConfigurations.set_hw_path(hw_path)

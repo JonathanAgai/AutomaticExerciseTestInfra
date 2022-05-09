@@ -6,61 +6,30 @@ from GUIConfigurations import *
 
 
 class Test:
-    # TODO documentation
     """
-        write in one line class description here
-
-        write long description of class here
+        Contains operations, test name, images for comparison and all the things needed to perform a test
 
         Attributes
         ----------
-        operations : write the parameter's type here
-            write parameter description here
-        lecturer_img_path : write the parameter's type here
-            write parameter description here
-        crop_element_name : write the parameter's type here
-            write parameter description here
-        crop_area_img_path : write the parameter's type here
-            write parameter description here
-        test_name : write the parameter's type here
-            write parameter description here
-        success : write the parameter's type here
-            write parameter description here
-        review_str : write the parameter's type here
-            write parameter description here
+        operations
+        lecturer_img_path
+        crop_element_name
+        crop_area_img_path
+        test_name
+        success
+        review_str
 
         Methods
         -------
         save_application_img(string_test_name, student_id)
-            write function description here
         get_app_img_path(string_test_name, student_id)
-            write function description here
         get_lecturer_cropped_img_path(string_test_name)
-            write function description here
         run(student_id)
-            write function description here
         print()
-            write function description here
         get_review()
-            write function description here
         """
     def __init__(self, operations, expected_result_img_path, crop_element_name, crop_area_img_path, test_name):
-        # TODO documentation
-        """
-        __init__(...) write function description here
-        :param operations: write parameter description here
-        :type operations: write the parameter's type here
-        :param expected_result_img_path: write parameter description here
-        :type expected_result_img_path: write the parameter's type here
-        :param crop_element_name: write parameter description here
-        :type crop_element_name: write the parameter's type here
-        :param crop_area_img_path: write parameter description here
-        :type crop_area_img_path: write the parameter's type here
-        :param test_name: write parameter description here
-        :type test_name: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
+
         self.operations = operations
 
         # expected_img_path: Solution image for a specific test
@@ -74,15 +43,13 @@ class Test:
         self.review_str = ''
 
     def save_application_img(self, string_test_name, student_id):
-        # TODO documentation
         """
-        save_application_img(...) write function description here
-        :param string_test_name: write parameter description here
-        :type string_test_name: write the parameter's type here
-        :param student_id: write parameter description here
-        :type student_id: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        save_application_img(...) save application image after the test has been performed
+        :param string_test_name: test name
+        :type string_test_name: string
+        :param student_id: student id
+        :type student_id: string
+        :return: None
         """
         save_path = self.get_app_img_path(string_test_name, student_id)
         gui_config = GUIConfigurations.get_instance()
@@ -91,15 +58,14 @@ class Test:
         cropped_image.save(save_path)
 
     def get_app_img_path(self, string_test_name, student_id):
-        # TODO documentation
         """
-        get_app_img_path(...) write function description here
-        :param string_test_name: write parameter description here
-        :type string_test_name: write the parameter's type here
-        :param student_id: write parameter description here
-        :type student_id: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        get_app_img_path(...) get the image path of the application
+        :param string_test_name: test name
+        :type string_test_name: string
+        :param student_id: student id
+        :type student_id: string
+        :return: image path
+        :rtype: string
         """
         if RunTimeTestConfigurations.get_is_lecturer_mode():
             cropped_image_path = f"{self.crop_area_img_path}/application/{string_test_name}.png"
@@ -112,25 +78,22 @@ class Test:
         return cropped_image_path
 
     def get_lecturer_cropped_img_path(self, string_test_name):
-        # TODO documentation
         """
-        get_lecturer_cropped_img_path(...) write function description here
-        :param string_test_name: write parameter description here
-        :type string_test_name: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        get_lecturer_cropped_img_path(...) get the image path of lecturer's application
+        :param string_test_name: test name
+        :type string_test_name: string
+        :return: image path
+        :rtype: string
         """
         cropped_image_path = f"{self.crop_area_img_path}/templates/{string_test_name}.png"
         return cropped_image_path
 
     def run(self, student_id):
-        # TODO documentation
         """
-        run(...) write function description here
-        :param student_id: write parameter description here
-        :type student_id: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        run(...) Running a specific test and making comparisons
+        :param student_id: student id
+        :type student_id: string
+        :return: None
         """
         time.sleep(0.5)
         string_test_name = self.test_name.replace("_", " ")

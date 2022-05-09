@@ -45,7 +45,7 @@ class ReportGenerator:
     def student_row_generator(self, student_data):
         """
         student_row_generator(...) Create a student entry with the relevant information
-        :param student_data:
+        :param student_data: student_id, features_scores, features_reviews, final_score
         :type student_data: Class StudentData
         :return: None
         """

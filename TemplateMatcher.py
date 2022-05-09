@@ -56,10 +56,10 @@ class TemplateMatcher:
     @staticmethod
     def find_location(source_image, template_path):
         """
-        find_location(...) Finding the element on the screen
+        find_location(...) Finding element location
         :param source_image: img to be compered with
         :type source_image: open cv img
-        :param template_path: string to template img
+        :param template_path: template img path
         :type template_path: string
         :return: x, y, width, height
         :rtype: list of ints

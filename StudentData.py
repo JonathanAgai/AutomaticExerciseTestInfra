@@ -1,11 +1,3 @@
-"""
-class containing:
-  string - student ID
-  dict/list - amount of score recv for each feature
-  dict/list - summery for each feature
-  string - final score
-"""
-
 
 class StudentData:
     """
@@ -33,7 +25,7 @@ class StudentData:
     def generate_data(self):
         """
         generate_data(...) Creating the student's information generated from the tests
-        :return: data
+        :return: student ID,amount of score recv for each feature, summery for each feature, final score
         :rtype: list of strings
         """
         data = [self.student_id]

@@ -45,7 +45,7 @@ class Feature:
     def run_tests(self, student_id):
         """
         run_tests(...) Running tests for each feature according to the student's ID and calculating score
-        :param student_id:
+        :param student_id: student id
         :type student_id: string
         :return: None
         """

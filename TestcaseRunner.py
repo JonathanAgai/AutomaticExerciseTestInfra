@@ -4,45 +4,26 @@ import time
 
 
 class TestcaseRunner:
-    # TODO documentation
     """
-        write in one line class description here
-
-        write long description of class here
+        A component that contains the features and configurations required to run the tests
 
         Attributes
         ----------
-        features : write the parameter's type here
-            write parameter description here
-        final_score : write the parameter's type here
-            write parameter description here
-        features_scores : write the parameter's type here
-            write parameter description here
-        features_reviews : write the parameter's type here
-            write parameter description here
-        test_configurations_path : write the parameter's type here
-            write parameter description here
+        features
+        final_score
+        features_scores
+        features_reviews
+        test_configurations_path
 
         Methods
         -------
         set_configurations(test_configurations_path)
-            write function description here
         run(student_id) -> StudentData
-            write function description here
         calculate_final_score()
-            write function description here
         print()
-            write function description here
         """
     def __init__(self, test_configurations_path=None):
-        # TODO documentation
-        """
-        __init__(...) write function description here
-        :param test_configurations_path: write parameter description here
-        :type test_configurations_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
-        """
+
         self.features = None
         self.final_score = ''
         self.features_scores = []
@@ -50,24 +31,21 @@ class TestcaseRunner:
         self.test_configurations_path = test_configurations_path
 
     def set_configurations(self, test_configurations_path):
-        # TODO documentation
         """
-        set_configurations(...) write function description here
-        :param test_configurations_path: write parameter description here
-        :type test_configurations_path: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        set_configurations(...) extract features from configuration file
+        :param test_configurations_path: configuration path file
+        :type test_configurations_path: string
+        :return: None
         """
         self.features = TestConfigurationParser.extract_features(test_configurations_path)
 
     def run(self, student_id) -> StudentData:
-        # TODO documentation
         """
-        run(...) write function description here
-        :param student_id: write parameter description here
-        :type student_id: write the parameter's type here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        run(...) Extract the required features, and run a set of tests on each feature
+        :param student_id: student id
+        :type student_id: string
+        :return: student data
+        :rtype: Class StudentData
         """
         self.features_scores.clear()
         self.features_reviews.clear()
@@ -99,11 +77,9 @@ class TestcaseRunner:
         return StudentData(student_id, self.features_scores, self.features_reviews, self.final_score)
 
     def calculate_final_score(self):
-        # TODO documentation
         """
-        calculate_final_score(...) write function description here
-        :return: write return value and description here or write None if it doesn't have return value.
-        :rtype: write the type of the return parameter here
+        calculate_final_score(...) student's final score calculation
+        :return: None
         """
         x, y = 0, 0
         flat_list = []
@@ -120,6 +96,15 @@ class TestcaseRunner:
         self.final_score = final_score
 
     def try_to_find_gui_elements(self, sleep_interval_sec, num_retries):
+        """
+        try_to_find_gui_elements(...) Attempts to locate the GUI elements
+        :param sleep_interval_sec: amount of seconds for sleep
+        :type sleep_interval_sec: time
+        :param num_retries: number of tries
+        :type num_retries: int
+        :return: True if the elements has been found, False otherwise
+        :rtype: bool
+        """
         gui_config = GUIConfigurations.get_instance()
         for i in range(num_retries):
             found_gui_elements = gui_config.find_gui_elements()

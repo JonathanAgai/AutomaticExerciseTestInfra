@@ -78,12 +78,15 @@ class App:
         gui_elements_images_path = f"configuration/{hw_path}/gui_elements_images"
         TestConfigurationParser.initialize(json_configuration_file_path, gui_elements_images_path)
 
+        report_headers = TestConfigurationParser.extract_features_headers(json_configuration_file_path)
+
         students_solution_folder_path = f'students_solution_execs/{hw_path}'
         results_report_path = f'students_solution/{hw_path}'
-        homework_exe = HomeWorkExecutioner(students_solution_folder_path,
-                                           results_report_path,
-                                           json_configuration_file_path)
-        homework_exe.run()
+        homework_exe = HomeWorkExecutioner(students_solution_folder_path, json_configuration_file_path)
+        students_data = homework_exe.run()
+
+        report_generator = ReportGenerator(results_report_path, students_data, report_headers)
+        report_generator.generate_report()
         print("run_button_command")
 
 

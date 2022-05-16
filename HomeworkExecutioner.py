@@ -23,14 +23,11 @@ class HomeWorkExecutioner:
     extract_student_ids()
     run(student_id)
     """
-    def __init__(self, students_solution_folder_path, results_report_path, test_configurations_path):
+    def __init__(self, students_solution_folder_path, test_configurations_path):
 
         self.students_solution_folder_path = students_solution_folder_path
-        self.results_report_path = results_report_path
         self.test_case_runner = TestcaseRunner(test_configurations_path)
-
         self.students_id = self.extract_student_ids()
-        self.report_headers = TestConfigurationParser.extract_features_headers(test_configurations_path)
 
     def extract_student_ids(self):
         """
@@ -66,7 +63,6 @@ class HomeWorkExecutioner:
 
             p.terminate()
 
-        report_generator = ReportGenerator(self.results_report_path, students_data, self.report_headers)
-        report_generator.generate_report()
+        return students_data
 
 

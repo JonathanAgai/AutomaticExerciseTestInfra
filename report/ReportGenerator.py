@@ -3,9 +3,7 @@ import pandas as pd
 
 class ReportGenerator:
     """
-    write in one line class description here
-
-    write long description of class here
+    This component is responsible for producing reports after the tests are completed
 
     Attributes
     ----------

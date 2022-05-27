@@ -1,5 +1,5 @@
 import pyautogui
-from TemplateMatcher import *
+from computer_vision.TemplateMatcher import *
 
 
 def get_box_union(box1: list, box2: list):
@@ -63,6 +63,7 @@ def get_element_input_location(element_location: list, input_dimension: dict):
 class GUIConfigurations:
     """
         This component is responsible for finding the positions of the elements by mathematical calculations
+        and computer vision algorithm
 
         Attributes
         ----------

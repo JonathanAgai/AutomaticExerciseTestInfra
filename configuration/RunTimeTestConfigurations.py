@@ -2,7 +2,8 @@
 
 class RunTimeTestConfigurations:
     """
-        This component is responsible for initializing the relevant files and mode before running tests
+        This component is responsible for setting the relevant files and mode before running tests
+        in order to be able to distinguish between creating a new exercise and testing a specific exercise
 
         Attributes
         ----------

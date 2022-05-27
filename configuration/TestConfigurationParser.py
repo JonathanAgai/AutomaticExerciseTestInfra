@@ -1,7 +1,7 @@
 import json
-from Operation import *
-from Test import *
-from Feature import *
+from assessment.Operation import *
+from assessment.Test import *
+from assessment.Feature import *
 
 
 def parse_features_headers(data):
@@ -231,7 +231,7 @@ def extract_test_configuration_operations(test_operations):
 
 class TestConfigurationParser:
     """
-        This component is responsible for Decoding/text analysis of the information
+        This component is responsible for Json parsing and analysis of the information
          then extract and initialize the features,tests,operations required to perform the tests
 
         Attributes

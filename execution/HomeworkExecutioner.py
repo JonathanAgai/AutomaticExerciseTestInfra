@@ -1,6 +1,5 @@
 import os
 from subprocess import Popen
-from ReportGenerator import *
 from TestcaseRunner import *
 
 

@@ -1,7 +1,8 @@
 import tkinter as tk
 import tkinter.font as tkFont
-from HomeworkExecutioner import *
+from execution.HomeworkExecutioner import *
 from RunTimeTestConfigurations import *
+from ReportGenerator import *
 import os
 
 

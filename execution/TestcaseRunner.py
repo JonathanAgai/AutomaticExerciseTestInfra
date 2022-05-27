@@ -1,4 +1,4 @@
-from StudentData import StudentData
+from report.StudentData import StudentData
 from TestConfigurationParser import *
 import time
 
